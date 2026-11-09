@@ -106,6 +106,22 @@ Every model call is recorded in `runs/<manifest>/ledger.jsonl`, keyed by a hash 
 An interrupted run resumes without paying twice, and a changed prompt is never answered from an old
 record. `--max-usd` is a hard cap: the runner stops before any call whose worst case would exceed it.
 
+## Review packets: sharing one review properly
+
+`orh review` runs the same pipeline on a single openly licensed arXiv paper, through your own Claude
+Code or Codex sign-in, and writes a review packet. You check each finding against the paper, name
+yourself (a pseudonym is fine) and choose a licence. `orh packet render --share` then writes a
+Markdown version with only the findings you checked. You can post it, or paste it into a Claude Code
+or Codex chat. The JSON travels with it, so anyone can re-check every quote with `orh packet verify`.
+
+```bash
+uv run orh review 2401.01246 --model codex/gpt-6.1-terra
+```
+
+The format, the sharing rules and the id are described in
+[docs/REVIEW_PACKET.md](docs/REVIEW_PACKET.md). These reviews sit outside the preregistered study
+and never enter its results.
+
 ## Adding a model
 
 Add it to [src/review_harness/models.toml](src/review_harness/models.toml) with its provider, prices
@@ -135,8 +151,9 @@ is treated the same way.
   [alxfgh/withdrarxiv-factual-errors](https://huggingface.co/datasets/alxfgh/withdrarxiv-factual-errors),
   a subset of [WithdrarXiv](https://huggingface.co/datasets/darpa-scify/withdrarxiv) (Rao et al.,
   [arXiv:2412.03775](https://arxiv.org/abs/2412.03775), Apache-2.0).
-- Per-paper model output stays local in `runs/`. It is unverified machine text about identifiable
-  people's work, so it is never committed.
+- Per-paper model output stays local in `runs/` and `packets/`. It is unverified machine text about
+  identifiable people's work, so it is never committed. A single packet is shared only after a
+  person checks it, under their name and a licence they choose.
 
 ## Background
 

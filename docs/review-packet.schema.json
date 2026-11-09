@@ -1,0 +1,618 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaperJudge review packet",
+  "description": "One model's review of one open paper, with a person's checks. See docs/REVIEW_PACKET.md in open-review-harness.",
+  "$defs": {
+    "Anchor": {
+      "description": "A W3C Web Annotation TextQuoteSelector and TextPositionSelector, in the extracted text.",
+      "properties": {
+        "exact": {
+          "title": "Exact",
+          "type": "string"
+        },
+        "prefix": {
+          "title": "Prefix",
+          "type": "string"
+        },
+        "suffix": {
+          "title": "Suffix",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact",
+        "prefix",
+        "suffix",
+        "start",
+        "end"
+      ],
+      "title": "Anchor",
+      "type": "object"
+    },
+    "CallRecord": {
+      "properties": {
+        "step": {
+          "title": "Step",
+          "type": "string"
+        },
+        "request_digest": {
+          "title": "Request Digest",
+          "type": "string"
+        },
+        "retry": {
+          "title": "Retry",
+          "type": "boolean"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "step",
+        "request_digest",
+        "retry",
+        "status"
+      ],
+      "title": "CallRecord",
+      "type": "object"
+    },
+    "HumanCheck": {
+      "properties": {
+        "status": {
+          "default": "unchecked",
+          "enum": [
+            "unchecked",
+            "checked",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        },
+        "at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "At"
+        }
+      },
+      "title": "HumanCheck",
+      "type": "object"
+    },
+    "HumanPart": {
+      "properties": {
+        "responsible": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Responsible"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "licence": {
+          "anyOf": [
+            {
+              "enum": [
+                "CC-BY-4.0",
+                "CC0-1.0"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Licence"
+        },
+        "checks": {
+          "additionalProperties": {
+            "$ref": "#/$defs/HumanCheck"
+          },
+          "default": {},
+          "title": "Checks",
+          "type": "object"
+        }
+      },
+      "title": "HumanPart",
+      "type": "object"
+    },
+    "Method": {
+      "properties": {
+        "harness": {
+          "title": "Harness",
+          "type": "string"
+        },
+        "harness_version": {
+          "title": "Harness Version",
+          "type": "string"
+        },
+        "arm": {
+          "title": "Arm",
+          "type": "string"
+        },
+        "prompts_sha256": {
+          "title": "Prompts Sha256",
+          "type": "string"
+        },
+        "model": {
+          "$ref": "#/$defs/RunModel"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "calls": {
+          "items": {
+            "$ref": "#/$defs/CallRecord"
+          },
+          "title": "Calls",
+          "type": "array"
+        },
+        "posted_after_cutoff": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Posted After Cutoff"
+        }
+      },
+      "required": [
+        "harness",
+        "harness_version",
+        "arm",
+        "prompts_sha256",
+        "model",
+        "status",
+        "calls",
+        "posted_after_cutoff"
+      ],
+      "title": "Method",
+      "type": "object"
+    },
+    "PacketFinding": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "quote_found": {
+          "title": "Quote Found",
+          "type": "boolean"
+        },
+        "anchor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Anchor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "verifier": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/VerdictKind"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verifier_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Verifier Reason"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "severity",
+        "location",
+        "quote",
+        "quote_found",
+        "anchor",
+        "explanation",
+        "verifier",
+        "verifier_reason"
+      ],
+      "title": "PacketFinding",
+      "type": "object"
+    },
+    "PaperInfo": {
+      "properties": {
+        "arxiv_id": {
+          "title": "Arxiv Id",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "integer"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "first_posted": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "First Posted"
+        },
+        "version_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version Date"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "arxiv_doi": {
+          "title": "Arxiv Doi",
+          "type": "string"
+        },
+        "journal_doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Journal Doi"
+        },
+        "licence": {
+          "$ref": "#/$defs/PaperLicence"
+        },
+        "text": {
+          "$ref": "#/$defs/PaperTextInfo"
+        }
+      },
+      "required": [
+        "arxiv_id",
+        "version",
+        "title",
+        "category",
+        "first_posted",
+        "version_date",
+        "url",
+        "arxiv_doi",
+        "journal_doi",
+        "licence",
+        "text"
+      ],
+      "title": "PaperInfo",
+      "type": "object"
+    },
+    "PaperLicence": {
+      "properties": {
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Url"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "reuse": {
+          "enum": [
+            "open",
+            "non_commercial",
+            "not_open",
+            "unknown"
+          ],
+          "title": "Reuse",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "name",
+        "reuse",
+        "source"
+      ],
+      "title": "PaperLicence",
+      "type": "object"
+    },
+    "PaperTextInfo": {
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "chars": {
+          "title": "Chars",
+          "type": "integer"
+        },
+        "blinded": {
+          "title": "Blinded",
+          "type": "boolean"
+        },
+        "extractor": {
+          "title": "Extractor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "sha256",
+        "chars",
+        "blinded",
+        "extractor"
+      ],
+      "title": "PaperTextInfo",
+      "type": "object"
+    },
+    "Responsible": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "orcid": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Orcid"
+        },
+        "statement": {
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "statement"
+      ],
+      "title": "Responsible",
+      "type": "object"
+    },
+    "RunModel": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "provider": {
+          "title": "Provider",
+          "type": "string"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "effort": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Effort"
+        },
+        "knowledge_cutoff": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Knowledge Cutoff"
+        },
+        "billing": {
+          "title": "Billing",
+          "type": "string"
+        },
+        "runtime": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Runtime",
+          "type": "object"
+        },
+        "tool_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Tool Version"
+        }
+      },
+      "required": [
+        "name",
+        "provider",
+        "model_id",
+        "effort",
+        "knowledge_cutoff",
+        "billing",
+        "runtime",
+        "tool_version"
+      ],
+      "title": "RunModel",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "fatal",
+        "major",
+        "minor"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "VerdictKind": {
+      "enum": [
+        "upheld",
+        "refuted",
+        "uncertain"
+      ],
+      "title": "VerdictKind",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "format": {
+      "const": "paperjudge-review-packet",
+      "default": "paperjudge-review-packet",
+      "title": "Format",
+      "type": "string"
+    },
+    "format_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Format Version",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "paper": {
+      "$ref": "#/$defs/PaperInfo"
+    },
+    "method": {
+      "$ref": "#/$defs/Method"
+    },
+    "disclosure": {
+      "title": "Disclosure",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/PacketFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "human": {
+      "$ref": "#/$defs/HumanPart"
+    }
+  },
+  "required": [
+    "id",
+    "created_at",
+    "paper",
+    "method",
+    "disclosure",
+    "findings",
+    "human"
+  ],
+  "type": "object"
+}

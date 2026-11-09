@@ -16,3 +16,7 @@ dist/
 # Raw model output about specific papers stays local. Only aggregates in results/ are published:
 # an LLM's unverified claims about identifiable people's work should not go out under this name.
 runs/
+
+# Review packets are the same kind of output until a person checks them. They are shared on purpose,
+# one at a time, with `orh packet render --share`, never by committing this folder.
+packets/

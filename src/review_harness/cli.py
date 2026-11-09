@@ -1,4 +1,5 @@
-"""`orh`: freeze a sample, estimate its cost, run the arms, judge them and report."""
+"""`orh`: freeze a sample, estimate its cost, run the arms, judge them and report, and make review
+packets for single open papers."""
 
 import argparse
 import asyncio
@@ -7,7 +8,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from review_harness import framing, report, runner
+from review_harness import framing, packet_cli, report, runner
 from review_harness import judge as judging
 from review_harness import manifest as manifests
 from review_harness.ledger import Budget, Caller, Ledger
@@ -305,6 +306,9 @@ def main() -> None:
     canary.add_argument("--judge", default="gpt-6.1-sol")
     canary.add_argument("--max-usd", type=float, required=True)
     canary.set_defaults(run_async=_canary)
+
+    # Review packets: one open paper, checked by a person and shared under their name.
+    packet_cli.register(commands)
 
     args = parser.parse_args()
     if hasattr(args, "run_async"):

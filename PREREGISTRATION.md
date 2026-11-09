@@ -202,3 +202,14 @@ the schema by Codex's `--output-schema` (see Amendment 1). As Amendment 1 requir
 the judged pairs will be re-judged through the API before any result is published, and agreement
 between the two will be reported. Results remain labelled as not human-checked until the 30-decision
 audit is done.
+
+**2. Retrying replies that used a tool (9 November 2026).** Logged after the stage 1 reviews were
+collected and before any of them was judged or scored. Amendment 1 discards a reply that shows tool
+use as an outage, but did not say whether the call is retried. In the stage 1 run of
+`codex/gpt-6.1-terra`, 14 of 103 `primed_bare` replies showed a tool event (10 of 50 controls and 4
+of 53 withdrawn papers). None of the 565 replies in the other six arms did. These calls are retried
+like any other outage, with at most three attempts in all, and a paper still without a review is left
+out of that arm's paired tests. Two consequences are reported with the results. First, the
+first-attempt rate of tool events by arm and role, since reaching for a tool is itself a response to
+the premise under the plain system prompt. Second, because retrying keeps only replies made without
+a tool, `primed_bare` results describe the replies in which the model answered directly.

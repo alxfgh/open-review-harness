@@ -71,7 +71,7 @@ def test_tables_count_by_source_field_and_discoverability(tmp_path):
         ("2v1", "cs", "code"),
     ]
     tables = taxonomy.tables(rows)
-    assert tables["taxonomy_summary"] == [
+    assert tables["taxonomy_counts"] == [
         {"source": "m", "primary": "code", "papers": 1, "share_of_source": 0.5},
         {"source": "m", "primary": "proof", "papers": 1, "share_of_source": 0.5},
     ]
@@ -79,3 +79,19 @@ def test_tables_count_by_source_field_and_discoverability(tmp_path):
         "text",
         "external",
     }
+
+
+def test_wide_summary_puts_the_two_samples_first_and_ends_with_a_total():
+    rows = [
+        {"source": "recent-2026h2", "discoverable": "text", "primary": "proof"},
+        {"source": "recent-2026h2", "discoverable": "external", "primary": "code"},
+        {"source": "withdrarxiv-2023q4-2024q3", "discoverable": "text", "primary": "proof"},
+        {"source": "pool", "discoverable": "text", "primary": "proof"},
+    ]
+    table = taxonomy.wide_summary(rows)
+    assert list(table[0])[:3] == ["error_kind", "recent-2026h2", "withdrarxiv-2023q4-2024q3"]
+    assert [row["error_kind"] for row in table] == [*taxonomy.DISPLAY_ORDER, "total"]
+    proof = table[0]
+    assert (proof["recent-2026h2"], proof["withdrarxiv-2023q4-2024q3"], proof["pool"]) == (1, 1, 1)
+    assert table[3]["recent-2026h2 external"] == 1  # code
+    assert table[-1]["recent-2026h2"] == 2

@@ -279,7 +279,7 @@ def main() -> None:
     ]
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "manifest_stats.json").write_text(
-        json.dumps(summaries, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(summaries, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     write_csv(args.out / "manifest_papers.csv", rows)
     for summary in summaries:

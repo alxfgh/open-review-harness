@@ -1,0 +1,25 @@
+{
+ "statements": 100,
+ "model": "codex/gpt-6.1-terra",
+ "agreement": 0.74,
+ "cohen_kappa": 0.621,
+ "rules": {
+  "calculation": 8,
+  "citation": 7,
+  "code": 11,
+  "data": 10,
+  "other": 11,
+  "proof": 53
+ },
+ "model_labels": {
+  "calculation": 8,
+  "citation": 3,
+  "code": 6,
+  "data": 17,
+  "other": 16,
+  "proof": 50
+ },
+ "coarse_agreement": 0.78,
+ "coarse_cohen_kappa": 0.61,
+ "formal_empirical_crossings": 5
+}

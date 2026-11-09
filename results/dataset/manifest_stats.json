@@ -1,0 +1,378 @@
+[
+ {
+  "manifest": "recent-2026h2",
+  "file": "manifests/recent-2026h2.json",
+  "sha256": "ed9630cc78721ebbb08d21bcd8ae7274b2fdf31a222a1025d6123f4eb8161917",
+  "created_at": "2026-11-09T17:34:08+00:00",
+  "window": {
+   "withdrawn_after": "2026-06-30",
+   "withdrawn_until": "2026-11-09"
+  },
+  "filters_sha256": "eddceb096173abaa86a316d349f761bcb38e7b83930c0550e3a4d44d06851157",
+  "prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+  "recorded_counts": {
+   "harvested": 529,
+   "usable_candidates": 57,
+   "selected_withdrawn": 53,
+   "selected_controls": 50,
+   "excluded": {
+    "admin_action: arXiv admin action, not an author's reason": 62,
+    "control_not_found": 3,
+    "manual: flaw is in a lemma of another paper that this one relies on": 2,
+    "manual: found by reanalysing data, which the text cannot show": 1,
+    "manual: mostly results that changed under a new evaluation, which the text cannot show": 1,
+    "manual: names the results affected but not the error": 1,
+    "manual: says only that a proof of an application contained errors": 1,
+    "manual: says only that errors exist and that key estimates do not hold": 1,
+    "manual: says only that errors were identified in several sections": 1,
+    "manual: says only that gaps were found in the proofs": 1,
+    "manual: says only that there are errors and inconsistencies in the presentation": 1,
+    "manual: says only that there are errors in references, terminology and reporting": 1,
+    "manual: says only that there are errors in the formal analysis": 1,
+    "manual: says only that there are methodological errors in the experimental design": 1,
+    "manual: says only that there are theoretical errors in several core arguments": 1,
+    "manual: says only that there was a bug in a data pipeline": 1,
+    "manual: says only that there was an error in the proof of a main theorem": 1,
+    "manual: the feature was shown to be an observational artifact by outside analysis": 1,
+    "manual: values were computed on incomplete task sets, which the text cannot show": 1,
+    "manual: wrong version: the error was in v2 and v3 had already withdrawn the claim": 1,
+    "not_about_error: authorship": 54,
+    "not_about_error: duplicate": 10,
+    "not_about_error: legal_or_policy": 20,
+    "not_about_error: no stated error": 154,
+    "not_about_error: plans": 42,
+    "not_about_error: superseded": 36,
+    "partial_correction: corrects a claim, not a withdrawal": 28,
+    "text_reveals_error": 1,
+    "text_too_long": 1,
+    "unavailable: source returned 404": 2,
+    "vague: states an error without saying what it is": 47
+   }
+  },
+  "withdrawn": 53,
+  "controls": 50,
+  "withdrawn_by_discoverability": {
+   "text": 38,
+   "external": 15
+  },
+  "text_source": {
+   "latex": 101,
+   "pdf": 2
+  },
+  "withdrawn_by_field": {
+   "cs": 19,
+   "math": 20,
+   "physics": 11,
+   "q-fin": 1,
+   "stat": 2
+  },
+  "withdrawn_by_category": {
+   "cond-mat.mes-hall": 1,
+   "cond-mat.supr-con": 1,
+   "cs.AI": 1,
+   "cs.CL": 4,
+   "cs.CV": 2,
+   "cs.DB": 2,
+   "cs.DS": 1,
+   "cs.LG": 6,
+   "cs.NI": 1,
+   "cs.RO": 2,
+   "gr-qc": 2,
+   "math-ph": 2,
+   "math.AG": 1,
+   "math.AP": 3,
+   "math.CO": 4,
+   "math.CV": 1,
+   "math.FA": 2,
+   "math.GT": 1,
+   "math.LO": 1,
+   "math.NA": 1,
+   "math.NT": 3,
+   "math.RT": 1,
+   "math.SG": 1,
+   "math.ST": 1,
+   "nucl-th": 1,
+   "physics.class-ph": 1,
+   "q-fin.CP": 1,
+   "quant-ph": 3,
+   "stat.ME": 1,
+   "stat.ML": 1
+  },
+  "withdrawn_by_month": {
+   "2026-07": 13,
+   "2026-08": 8,
+   "2026-09": 17,
+   "2026-10": 13,
+   "2026-11": 2
+  },
+  "withdrawn_posted_after_window_start": 3,
+  "text_posted_after_window_start": 2,
+  "reviewed_version_dates_known": 53,
+  "withdrawn_reviewed_version_after_window_start": 5,
+  "text_reviewed_version_after_window_start": 3,
+  "withdrawn_posted_by_year": {
+   "2013": 1,
+   "2020": 1,
+   "2021": 1,
+   "2024": 7,
+   "2025": 13,
+   "2026": 30
+  },
+  "chars_withdrawn": {
+   "min": 11349,
+   "q1": 40604.0,
+   "median": 58548.0,
+   "q3": 83417.0,
+   "max": 213956
+  },
+  "chars_controls": {
+   "min": 16181,
+   "q1": 37648.75,
+   "median": 76238.0,
+   "q3": 111726.75,
+   "max": 180575
+  },
+  "gold_chars": {
+   "min": 66,
+   "q1": 232.0,
+   "median": 317.0,
+   "q3": 377.0,
+   "max": 398
+  },
+  "gold_without_numbered_location": [
+   "2511.05345v3",
+   "2603.13891v1",
+   "2603.02104v2",
+   "2601.09641v2",
+   "2110.00067v2",
+   "2003.01694v1",
+   "2601.18350v4",
+   "2603.24155v2",
+   "2512.22740v3",
+   "2602.22673v2",
+   "2511.03532v1",
+   "2510.24789v1",
+   "2607.00728v1",
+   "2606.17028v1",
+   "2512.16025v1",
+   "2605.25530v1",
+   "2407.09306v2",
+   "2601.01855v7",
+   "2606.16674v2",
+   "2605.01192v1",
+   "2502.20569v1",
+   "2606.09191v1",
+   "2607.18211v1",
+   "2509.26066v2",
+   "2601.11799v2",
+   "2601.07131v1",
+   "2410.04630v1",
+   "2605.00309v1",
+   "2601.20845v1"
+  ],
+  "gold_names_a_person": [
+   "2604.03947v1"
+  ],
+  "claim_in_replacement": [
+   "2512.13406v1",
+   "2602.22673v2",
+   "2607.00728v1",
+   "2605.06021v1",
+   "2601.01855v7",
+   "2605.01953v1",
+   "2605.01192v1",
+   "2502.20569v1",
+   "2605.23419v3",
+   "2601.11799v2",
+   "2605.00309v1"
+  ],
+  "near_duplicate_golds": [
+   {
+    "a": "2409.01981v2",
+    "b": "2410.13840v2",
+    "similarity": 0.98
+   }
+  ],
+  "papers_with_leak_flags": 0,
+  "controls_check": {
+   "withdrawn_without_control": [
+    "2110.00067v2",
+    "2509.26066v2",
+    "2408.13016v1"
+   ],
+   "controls_same_category": 34,
+   "controls_same_month": 50,
+   "control_to_withdrawn_length_ratio": {
+    "min": 0.18,
+    "q1": 0.5824999999999999,
+    "median": 1.125,
+    "q3": 2.0549999999999997,
+    "max": 6.71
+   }
+  },
+  "exclusions_by_kind": {
+   "admin_action": 62,
+   "manual": 19,
+   "not_about_error": 316,
+   "partial_correction": 28,
+   "text_reveals_error": 1,
+   "text_too_long": 1,
+   "unavailable": 2,
+   "vague": 47
+  }
+ },
+ {
+  "manifest": "withdrarxiv-2023q4-2024q3",
+  "file": "manifests/withdrarxiv-2023q4-2024q3.json",
+  "sha256": "e6a0193d23f2b7abfffb3cfa036ab04bb45337f09f7e3d47c798e05928b6960c",
+  "created_at": "2026-11-09T17:44:20+00:00",
+  "window": {
+   "withdrawn_after": "2023-10-01",
+   "withdrawn_until": "2024-09-30"
+  },
+  "filters_sha256": "eddceb096173abaa86a316d349f761bcb38e7b83930c0550e3a4d44d06851157",
+  "prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+  "recorded_counts": {
+   "harvested": 39,
+   "usable_candidates": 24,
+   "selected_withdrawn": 24,
+   "selected_controls": 22,
+   "excluded": {
+    "control_not_found": 2,
+    "manual: a software glitch, which the text cannot show": 1,
+    "manual: an instrument reading was affected during the experiment, which the text cannot show": 1,
+    "manual: an insufficient description of data collection, not an error in a claim": 1,
+    "manual: describes revised results, not an error": 1,
+    "manual: says only that a major error was found": 1,
+    "manual: says only that a significant error affects the conclusions": 1,
+    "manual: says only that an error significantly affects the results": 1,
+    "manual: says only that new experiments found some results incorrect": 1,
+    "manual: says only that reviewers found mistakes in the theorems": 1,
+    "manual: says only that the main result is incorrect": 1,
+    "manual: says only that there are errors in the experimental results": 1,
+    "manual: says only that there are flaws in the algorithm": 1,
+    "manual: the error is in figure annotations, and figures are not shown to models": 1,
+    "manual: the error is in simulated signal generation, which the text cannot show": 1,
+    "manual: the model needs updating, which is not a stated error": 1
+   }
+  },
+  "withdrawn": 24,
+  "controls": 22,
+  "withdrawn_by_discoverability": {
+   "text": 23,
+   "external": 1
+  },
+  "text_source": {
+   "latex": 43,
+   "pdf": 3
+  },
+  "withdrawn_by_field": {
+   "cs": 5,
+   "math": 9,
+   "physics": 10
+  },
+  "withdrawn_by_category": {
+   "cond-mat.mtrl-sci": 1,
+   "cond-mat.stat-mech": 1,
+   "cs.AI": 2,
+   "cs.CV": 1,
+   "cs.LG": 1,
+   "cs.LO": 1,
+   "gr-qc": 1,
+   "hep-ph": 1,
+   "hep-th": 1,
+   "math-ph": 1,
+   "math.AC": 1,
+   "math.AG": 1,
+   "math.AP": 1,
+   "math.CO": 1,
+   "math.FA": 1,
+   "math.NA": 2,
+   "math.NT": 2,
+   "physics.flu-dyn": 1,
+   "physics.hist-ph": 1,
+   "quant-ph": 2
+  },
+  "withdrawn_by_month": {
+   "2023-10": 3,
+   "2023-11": 3,
+   "2023-12": 4,
+   "2024-01": 2,
+   "2024-02": 1,
+   "2024-03": 4,
+   "2024-05": 1,
+   "2024-06": 1,
+   "2024-07": 3,
+   "2024-08": 2
+  },
+  "withdrawn_posted_after_window_start": 11,
+  "text_posted_after_window_start": 10,
+  "reviewed_version_dates_known": 24,
+  "withdrawn_reviewed_version_after_window_start": 12,
+  "text_reviewed_version_after_window_start": 11,
+  "withdrawn_posted_by_year": {
+   "2019": 1,
+   "2022": 4,
+   "2023": 12,
+   "2024": 7
+  },
+  "chars_withdrawn": {
+   "min": 7008,
+   "q1": 42365.75,
+   "median": 51700.0,
+   "q3": 67410.25,
+   "max": 227107
+  },
+  "chars_controls": {
+   "min": 22267,
+   "q1": 43986.25,
+   "median": 62678.0,
+   "q3": 71061.5,
+   "max": 170524
+  },
+  "gold_chars": {
+   "min": 40,
+   "q1": 124.75,
+   "median": 213.5,
+   "q3": 362.25,
+   "max": 395
+  },
+  "gold_without_numbered_location": [
+   "1903.07284v2",
+   "2310.12703v1",
+   "2408.00226v1",
+   "2311.14724v2",
+   "2309.03227v1",
+   "2406.13558v1",
+   "2307.15626v1",
+   "2308.04802v1",
+   "2402.15454v1"
+  ],
+  "gold_names_a_person": [
+   "2310.12703v1",
+   "2308.04802v1",
+   "2401.12516v1"
+  ],
+  "claim_in_replacement": [],
+  "near_duplicate_golds": [],
+  "papers_with_leak_flags": 0,
+  "controls_check": {
+   "withdrawn_without_control": [
+    "2304.01462v2",
+    "2311.14724v2"
+   ],
+   "controls_same_category": 15,
+   "controls_same_month": 22,
+   "control_to_withdrawn_length_ratio": {
+    "min": 0.24,
+    "q1": 0.75,
+    "median": 1.09,
+    "q3": 1.4175,
+    "max": 4.6
+   }
+  },
+  "exclusions_by_kind": {
+   "manual": 15
+  }
+ }
+]

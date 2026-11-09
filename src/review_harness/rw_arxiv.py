@@ -298,7 +298,7 @@ class OpenAlexCache:
             return
         path.parent.mkdir(parents=True, exist_ok=True)
         data = {"queried": sorted(self.queried), "found": dict(sorted(self.found.items()))}
-        path.write_text(json.dumps(data, indent=0) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(data, indent=0) + "\n", encoding="utf-8", newline="\n")
 
 
 async def search_openalex(
@@ -596,7 +596,7 @@ async def _main(args: argparse.Namespace) -> int:
             handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
     summary = summarise(records, rows, progress, cutoff, version)
     args.summary.parent.mkdir(parents=True, exist_ok=True)
-    args.summary.write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
+    args.summary.write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(summary, indent=1))
     return 0
 

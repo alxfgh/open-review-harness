@@ -81,7 +81,7 @@ async def run(args: argparse.Namespace) -> int:
     rows = list(csv.DictReader(args.taxonomy.open(encoding="utf-8")))
     unique: dict[str, dict] = {}
     for row in rows:  # A paper in both a manifest and the pool is labelled once.
-        unique.setdefault(row["key"], row)
+        unique.setdefault(row["arxiv_id"], row)
     items = list(unique.values())
     caller = Caller(CliLLM(), Ledger(args.runs / "ledger.jsonl"), Budget(0.0))
     model_labels: list[str] = []
@@ -114,8 +114,19 @@ async def run(args: argparse.Namespace) -> int:
         "rules": dict(sorted(Counter(rules).items())),
         "model_labels": dict(sorted(Counter(model_labels).items())),
     }
+    # Coarser kinds: formal (proof, calculation), empirical (data, code), and the rest.
+    coarse = {"proof": "formal", "calculation": "formal", "data": "empirical", "code": "empirical"}
+    rules_c = [coarse.get(label, "other") for label in rules]
+    model_c = [coarse.get(label, "other") for label in model_labels]
+    summary["coarse_agreement"] = round(
+        sum(r == m for r, m in zip(rules_c, model_c, strict=True)) / len(items), 3
+    )
+    summary["coarse_cohen_kappa"] = cohen_kappa(rules_c, model_c)
+    summary["formal_empirical_crossings"] = sum(
+        {r, m} == {"formal", "empirical"} for r, m in zip(rules_c, model_c, strict=True)
+    )
     (args.out / "taxonomy_agreement.json").write_text(
-        json.dumps(summary, indent=1) + "\n", encoding="utf-8"
+        json.dumps(summary, indent=1) + "\n", encoding="utf-8", newline="\n"
     )
     print(json.dumps(summary, indent=1))
     return 0

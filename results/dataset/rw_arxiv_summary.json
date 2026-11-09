@@ -1,0 +1,52 @@
+{
+ "generated_at": "2026-11-09T17:55:18+00:00",
+ "retraction_watch_version": "bcb455b60862616288b8245e21bfdfdc0610ee34 2026-11-06 23:00:10+00",
+ "cutoff": "2026-06-30",
+ "error_reasons": [
+  "Error in Analyses",
+  "Error in Data",
+  "Error in Methods",
+  "Error in Results and/or Conclusions"
+ ],
+ "error_retractions": 3878,
+ "error_retractions_unseen": 22,
+ "with_doi": 3645,
+ "matched": {
+  "unseen": 1,
+  "seen": 48,
+  "undated": 0
+ },
+ "matched_by_method": {
+  "arxiv_doi": 22,
+  "openalex": 26,
+  "rw_arxiv_doi": 1
+ },
+ "matched_no_misconduct_signal": {
+  "unseen": 1,
+  "seen": 48,
+  "undated": 0
+ },
+ "matched_no_misconduct_preprint_before_retraction": {
+  "unseen": 1,
+  "seen": 48,
+  "undated": 0
+ },
+ "matched_weak_title_match_below_0_8": 3,
+ "matched_by_field": {
+  "cs": 3,
+  "eess": 1,
+  "math": 14,
+  "physics": 29,
+  "q-bio": 1,
+  "stat": 1
+ },
+ "matched_also_withdrawn_on_arxiv": 10,
+ "queries": {
+  "arxiv_doi_batches": 92,
+  "openalex_batches": 0,
+  "arxiv_title_searches": 21,
+  "unqueryable_dois": 0,
+  "openalex_rejected_on_title": 2,
+  "failed": []
+ }
+}

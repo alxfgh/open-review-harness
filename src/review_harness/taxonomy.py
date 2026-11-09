@@ -136,6 +136,35 @@ def label_rows(rows: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
+DISPLAY_ORDER = ("proof", "calculation", "data", "code", "citation", "other")
+PRIMARY_SAMPLE = "recent-2026h2"
+SECONDARY_SAMPLE = "withdrarxiv-2023q4-2024q3"
+
+
+def wide_summary(
+    rows: list[dict[str, Any]],
+    primary: str = PRIMARY_SAMPLE,
+    secondary: str = SECONDARY_SAMPLE,
+) -> list[dict[str, Any]]:
+    """One row per kind: the primary and secondary samples first, for the paper's table, then the
+    same split by discoverability and the whole pool. Ends with a total row."""
+    columns = {
+        primary: lambda r: r["source"] == primary,
+        secondary: lambda r: r["source"] == secondary,
+        f"{primary} text": lambda r: r["source"] == primary and r["discoverable"] == "text",
+        f"{primary} external": lambda r: r["source"] == primary and r["discoverable"] == "external",
+        f"{secondary} text": lambda r: r["source"] == secondary and r["discoverable"] == "text",
+        "pool": lambda r: r["source"] == "pool",
+    }
+    table = []
+    for kind in (*DISPLAY_ORDER, "total"):
+        item: dict[str, Any] = {"error_kind": kind}
+        for name, keep in columns.items():
+            item[name] = sum(keep(r) and (kind == "total" or r["primary"] == kind) for r in rows)
+        table.append(item)
+    return table
+
+
 def tables(rows: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
     """Counts by source and primary kind, and broken down by field and by discoverability."""
     totals = Counter(row["source"] for row in rows)
@@ -152,7 +181,8 @@ def tables(rows: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
 
     any_label = Counter((row["source"], kind) for row in rows for kind in row["labels"].split(";"))
     return {
-        "taxonomy_summary": counted(),
+        "taxonomy_summary": wide_summary(rows),
+        "taxonomy_counts": counted(),
         "taxonomy_by_field": counted("field"),
         "taxonomy_by_discoverability": counted("discoverable"),
         "taxonomy_any_label": [

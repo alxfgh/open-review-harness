@@ -32,6 +32,7 @@ from review_harness.judge import SHUFFLED_PAIR, TOP_K, TRUE_PAIR, JudgedPair
 from review_harness.ledger import Caller
 from review_harness.llm import ModelInfo, get_model
 from review_harness.review import (
+    HARNESS,
     MAX_OUTPUT_REVIEW,
     ZERO_SHOT,
     Paper,
@@ -40,7 +41,14 @@ from review_harness.review import (
     rank_findings,
 )
 from review_harness.schemas import Finding, Findings, MatchKind, Severity
-from review_harness.stats import auroc, auroc_interval, fisher_exact, mcnemar_exact, wilson_interval
+from review_harness.stats import (
+    auroc,
+    auroc_interval,
+    fisher_exact,
+    mantel_haenszel,
+    mcnemar_exact,
+    wilson_interval,
+)
 
 PRIMED = "primed"
 PRIMED_BARE = "primed_bare"
@@ -208,18 +216,54 @@ def _paired(a: dict[str, bool], b: dict[str, bool]) -> dict[str, Any]:
     }
 
 
+def _length_adjusted(
+    withdrawn: dict[str, bool], controls: dict[str, bool], chars: dict[str, int]
+) -> dict[str, Any] | None:
+    """The withdrawn-versus-control comparison within two length strata (Amendment 2).
+
+    Controls are not matched on length, and a longer paper offers more chances of a fatal finding.
+    Splitting at the pooled median length and combining the strata with Mantel-Haenszel removes most
+    of that difference without a model.
+    """
+    keys = [*withdrawn, *controls]
+    if len(keys) < 4:
+        return None
+    lengths = sorted(chars[k] for k in keys)
+    median = lengths[len(lengths) // 2]
+    tables = []
+    for in_stratum in (lambda k: chars[k] < median, lambda k: chars[k] >= median):
+        w = [v for k, v in withdrawn.items() if in_stratum(k)]
+        c = [v for k, v in controls.items() if in_stratum(k)]
+        tables.append((sum(w), len(w) - sum(w), sum(c), len(c) - sum(c)))
+    odds_ratio, p = mantel_haenszel(tables)
+    return {
+        "median_chars": median,
+        "strata": [list(t) for t in tables],
+        "odds_ratio": None if odds_ratio is None else round(odds_ratio, 4),
+        "p": round(p, 6),
+    }
+
+
 def summarize(
-    manifest: dict[str, Any], records: list[ReviewRecord], judged: list[JudgedPair]
+    manifest: dict[str, Any],
+    records: list[ReviewRecord],
+    judged: list[JudgedPair],
+    exclude: frozenset[str] = frozenset(),
 ) -> dict[str, Any]:
-    """Fatal-flag rates by arm and role, the paired framing tests, and forecast discrimination."""
+    """Fatal-flag rates by arm and role, the paired framing tests, and forecast discrimination.
+
+    `exclude` removes withdrawn papers from every comparison, for the preregistered sensitivity
+    analysis without withdrawals that retract a claim rather than the whole paper (Amendment 2).
+    """
     papers = {paper["key"]: paper for paper in manifest["papers"]}
+    chars = {key: int(paper.get("chars") or 0) for key, paper in papers.items()}
     index = {(r.model, r.arm, r.paper): r for r in records if r.status in ("ok", "partial")}
     judgments: dict[tuple, list[JudgedPair]] = {}
     for item in judged:
         judgments.setdefault((item.model, item.arm, item.paper), []).append(item)
 
-    arms_present = [ZERO_SHOT, *FRAMING_ARMS]
-    out: dict[str, Any] = {"models": {}}
+    arms_present = [ZERO_SHOT, HARNESS, *FRAMING_ARMS]
+    out: dict[str, Any] = {"models": {}, "excluded_withdrawn": sorted(exclude)}
     for model_name in sorted({r.model for r in records if r.arm in FRAMING_ARMS}):
         model = get_model(model_name)
         withdrawn = [
@@ -227,6 +271,7 @@ def summarize(
             for key, paper in papers.items()
             if paper["role"] == "withdrawn"
             and paper.get("discoverable") == "text"
+            and key not in exclude
             and model.is_unseen(date.fromisoformat(paper["withdrawn"]))
         ]
         controls = [key for key, paper in papers.items() if paper["role"] == "control"]
@@ -280,7 +325,7 @@ def summarize(
                 "question": "Does saying a sound paper was retracted make a fatal finding more likely?",
                 **_paired(fatal[(PRIMED, "control")], fatal[(ZERO_SHOT, "control")]),
             }
-        for arm in (PRIMED, PRIMED_BARE, FORECAST, ZERO_SHOT):
+        for arm in (PRIMED, PRIMED_BARE, FORECAST, ZERO_SHOT, HARNESS):
             if have((arm, "withdrawn"), (arm, "control")):
                 w, c = fatal[(arm, "withdrawn")], fatal[(arm, "control")]
                 a, b = sum(w.values()), len(w) - sum(w.values())
@@ -290,6 +335,7 @@ def summarize(
                     "withdrawn": _rate(a, len(w)),
                     "controls": _rate(cc, len(c)),
                     "p": round(fisher_exact(a, b, cc, d), 6),
+                    "length_adjusted": _length_adjusted(w, c, chars),
                 }
         if PRIMED in exact and ZERO_SHOT in exact:
             tests["C_being_told_helps_find_the_real_flaw"] = {
@@ -333,9 +379,15 @@ def _pct(value: dict[str, Any] | None) -> str:
     return f"{value['rate']:.0%} ({low:.0%}–{high:.0%}, n={value['n']})"
 
 
-def render(summary: dict[str, Any]) -> str:
+def load_sensitivity(manifest_path: Path) -> dict[str, Any]:
+    """The paper lists fixed for sensitivity analyses before any run (Amendment 2), if any."""
+    path = manifest_path.with_name(f"{manifest_path.stem}.sensitivity.json")
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def render(summary: dict[str, Any], title: str = "Framing arms (amendment)") -> str:
     lines = [
-        "## Framing arms (amendment)",
+        f"## {title}",
         "",
         "Fatal-finding rates on withdrawn papers (unseen, flaw in the text) and on matched controls.",
         "A model that follows the premise rather than the paper flags both alike.",
@@ -366,6 +418,14 @@ def render(summary: dict[str, Any]) -> str:
                         if "only_first" in test
                         else ""
                     )
+                    adjusted = test.get("length_adjusted")
+                    if adjusted:
+                        ratio = adjusted["odds_ratio"]
+                        result += (
+                            f"; length-adjusted OR {ratio:.2f}, p = {adjusted['p']:.4f}"
+                            if ratio is not None
+                            else f"; length-adjusted p = {adjusted['p']:.4f}"
+                        )
                 lines.append(f"| {test['question']} | {result} |")
     return "\n".join(lines) + "\n"
 

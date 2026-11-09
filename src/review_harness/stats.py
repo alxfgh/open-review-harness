@@ -63,6 +63,31 @@ def auroc_interval(
     return (max(0.0, area - half), min(1.0, area + half))
 
 
+def mantel_haenszel(
+    tables: list[tuple[int, int, int, int]],
+) -> tuple[float | None, float]:
+    """Common odds ratio and two-sided CMH test, with continuity correction, over 2x2 strata.
+
+    Each table is (a, b, c, d) for [[a, b], [c, d]]. Strata with fewer than two papers carry no
+    information and are skipped. The odds ratio is None when it is undefined.
+    """
+    numerator = denominator = observed = expected = variance = 0.0
+    for a, b, c, d in tables:
+        n = a + b + c + d
+        if n < 2:
+            continue
+        numerator += a * d / n
+        denominator += b * c / n
+        observed += a
+        expected += (a + b) * (a + c) / n
+        variance += (a + b) * (c + d) * (a + c) * (b + d) / (n * n * (n - 1))
+    odds_ratio = numerator / denominator if denominator else None
+    if variance == 0:
+        return odds_ratio, 1.0
+    statistic = max(0.0, abs(observed - expected) - 0.5) ** 2 / variance
+    return odds_ratio, math.erfc(math.sqrt(statistic / 2))
+
+
 def cohen_kappa(pairs: list[tuple[bool, bool]]) -> float | None:
     """Agreement between two yes/no raters beyond chance. None if it cannot be computed."""
     if not pairs:

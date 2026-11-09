@@ -174,11 +174,21 @@ def cmd_report(args: argparse.Namespace) -> int:
     out.mkdir(parents=True, exist_ok=True)
     (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
     markdown = report.render_markdown(summary)
-    framed = framing.summarize(manifest, *_report_inputs(folder))
+    inputs = _report_inputs(folder)
+    framed = framing.summarize(manifest, *inputs)
     if framed["models"]:
         summary["framing"] = framed
-        (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
         markdown += "\n" + framing.render(framed)
+        # Amendment 2: the same analysis without withdrawals that retract a claim, not the paper.
+        partial = framing.load_sensitivity(args.manifest).get("claim_in_replacement", [])
+        if partial:
+            without = framing.summarize(manifest, *inputs, exclude=frozenset(partial))
+            summary["framing_without_claim_in_replacement"] = without
+            markdown += "\n" + framing.render(
+                without,
+                title=f"Framing arms without the {len(partial)} claim-in-replacement withdrawals",
+            )
+        (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
     (out / "summary.md").write_text(markdown, encoding="utf-8")
     print(markdown)
     return 0

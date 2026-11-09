@@ -218,3 +218,49 @@ def test_auroc_known_values():
     assert auroc([1, 1], [1, 1]) == 0.5
     low, high = auroc_interval(0.5, 20, 20)
     assert low < 0.5 < high and 0 <= low and high <= 1
+
+
+def test_mantel_haenszel_matches_a_single_table_and_skips_empty_strata():
+    from review_harness.stats import mantel_haenszel
+
+    ratio, p = mantel_haenszel([(10, 5, 5, 10)])
+    assert ratio == pytest.approx(4.0)
+    assert 0 < p < 0.2
+    same, p_same = mantel_haenszel([(10, 5, 5, 10), (10, 5, 5, 10), (0, 0, 0, 0)])
+    assert same == pytest.approx(4.0) and p_same < p
+    assert mantel_haenszel([(3, 3, 3, 3)])[1] == pytest.approx(1.0)
+
+
+def test_sensitivity_exclusion_and_length_adjustment():
+    withdrawn = [f"w{i}" for i in range(6)]
+    controls = [f"c{i}" for i in range(6)]
+    manifest = manifest_with(
+        [paper(k, "withdrawn", chars=10_000 * (i + 1)) for i, k in enumerate(withdrawn)]
+        + [paper(k, "control", chars=10_000 * (i + 1)) for i, k in enumerate(controls)]
+    )
+    records = [
+        record(arm, k, fatal=k.startswith("w"))
+        for arm in (ZERO_SHOT, PRIMED)
+        for k in withdrawn + controls
+    ]
+    full = summarize(manifest, records, [])["models"][CLI_MODEL]
+    test = full["tests"]["B_primed_still_separates_withdrawn_from_controls"]
+    assert test["withdrawn"]["n"] == 6
+    assert test["length_adjusted"]["p"] < 0.05
+    assert sum(sum(t) for t in test["length_adjusted"]["strata"]) == 12
+
+    without = summarize(manifest, records, [], exclude=frozenset({"w0", "w1"}))
+    assert without["excluded_withdrawn"] == ["w0", "w1"]
+    reduced = without["models"][CLI_MODEL]["tests"][
+        "B_primed_still_separates_withdrawn_from_controls"
+    ]
+    assert reduced["withdrawn"]["n"] == 4 and reduced["controls"]["n"] == 6
+
+
+def test_load_sensitivity_reads_the_file_beside_the_manifest(tmp_path):
+    path = write_manifest(tmp_path)
+    assert framing.load_sensitivity(path) == {}
+    (tmp_path / "m.sensitivity.json").write_text(
+        '{"claim_in_replacement": ["w1"]}', encoding="utf-8"
+    )
+    assert framing.load_sensitivity(path)["claim_in_replacement"] == ["w1"]

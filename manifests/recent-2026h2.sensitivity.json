@@ -1,0 +1,26 @@
+{
+ "kind": "sensitivity",
+ "parent_manifest": "recent-2026h2",
+ "parent_manifest_sha256": "ed9630cc78721ebbb08d21bcd8ae7274b2fdf31a222a1025d6123f4eb8161917",
+ "claim_in_replacement": [
+  "2502.20569v1",
+  "2512.13406v1",
+  "2601.01855v7",
+  "2601.11799v2",
+  "2602.22673v2",
+  "2605.00309v1",
+  "2605.01192v1",
+  "2605.01953v1",
+  "2605.06021v1",
+  "2605.23419v3",
+  "2607.00728v1"
+ ],
+ "clusters": [
+  [
+   "2409.01981v2",
+   "2410.13840v2"
+  ]
+ ],
+ "source": "harness/docs/DATASET_NOTES.md, sections 3 and 5. Classified from withdrawal comments and arXiv metadata only, before any model reviewed a real paper.",
+ "created_at": "2026-11-09T17:53:28+00:00"
+}

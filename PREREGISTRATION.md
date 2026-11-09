@@ -167,6 +167,30 @@ judges are instead run through Codex (`codex/gpt-6.1-sol`, `codex/gpt-6.1-terra`
 is a deviation and is logged below. A random 10% of those judgments are then repeated through the
 API, and agreement is reported.
 
+## Amendment 2: sensitivity analyses from the dataset checks (9 November 2026)
+
+Written after the final freeze and before any model reviewed a real paper. It follows the read-only
+checks in `docs/DATASET_NOTES.md`, which used withdrawal comments, arXiv metadata and text lengths,
+never model output. Nothing above changes; these analyses are secondary.
+
+- **Withdrawals that retract a claim, not the paper.** In 11 of the 53 recent withdrawn papers (6 of
+  the 38 `text` papers), the comment withdraws a claim inside a replacement version rather than the
+  paper itself. Each still states a specific error in the reviewed version, so each stays in the
+  primary analysis. But "This paper was retracted" is literally untrue for them. Every framing
+  analysis (tests A–E) is therefore also reported without them. The list is fixed in
+  `manifests/recent-2026h2.sensitivity.json`, and `orh report` adds the second table itself.
+- **Length.** Controls are matched on category and month, not length. Their median is about 76,000
+  characters against 59,000 for the withdrawn papers (66,000 for the `text` papers), and a longer text offers more chances of a
+  fatal finding. Test 4 and every test B are therefore also reported stratified at the pooled median
+  length, with a Mantel–Haenszel odds ratio and a CMH test with continuity correction. This was
+  added after the freeze because the imbalance was found then.
+- **Near-duplicate pair.** `2409.01981v2` and `2410.13840v2` report the same inherited lemma error.
+  They stay in, are listed as one cluster in the sensitivity file, and any per-paper discussion
+  treats them as one case. The intervals do not adjust for this single pair.
+- **Unseen text.** Only 3 of the 38 `text` papers have a reviewed version posted after the latest
+  cutoff (2 counting by first version), so the separate "posted after the cutoff" figure is
+  descriptive only, and no test is run on it.
+
 ## Deviations
 
 None yet.

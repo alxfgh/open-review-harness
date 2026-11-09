@@ -107,6 +107,32 @@ def test_codex_tool_use_voids_the_reply(kind):
         parse_codex_events(out, '{"findings": []}')
 
 
+def test_codex_web_search_through_the_apps_connector_voids_the_reply():
+    # The shape seen on 9 November: a search for the paper's retraction through `codex_apps`.
+    call = {
+        "type": "mcp_tool_call",
+        "server": "codex_apps",
+        "tool": "search_service.web_run",
+        "status": "in_progress",
+    }
+    out = codex_events({"type": "item.started", "item": call})
+    with pytest.raises(ProviderError, match="tool"):
+        parse_codex_events(out, '{"findings": []}')
+
+
+def test_codex_command_switches_off_every_tool_feature(tmp_path):
+    model = get_model("codex/gpt-6.1-terra")
+    command = cli_llm.codex_command(
+        ["codex"], model, tmp_path, tmp_path / "s.json", tmp_path / "last.txt"
+    )
+    disabled = {command[i + 1] for i, part in enumerate(command) if part == "--disable"}
+    assert {"apps", "shell_tool", "unified_exec", "browser_use", "computer_use"} <= disabled
+    assert set(cli_llm.CODEX_DISABLED_FEATURES) == disabled
+    assert command[command.index("--sandbox") + 1] == "read-only"
+    assert 'web_search="disabled"' in command and "mcp_servers={}" in command
+    assert command[-1] == "-"  # the prompt goes in on stdin
+
+
 def test_codex_usage_limit_is_an_outage():
     out = codex_events({"type": "turn.failed", "error": {"message": "usage limit reached"}})
     with pytest.raises(ProviderError, match="usage limit"):

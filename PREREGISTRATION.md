@@ -213,3 +213,23 @@ out of that arm's paired tests. Two consequences are reported with the results. 
 first-attempt rate of tool events by arm and role, since reaching for a tool is itself a response to
 the premise under the plain system prompt. Second, because retrying keeps only replies made without
 a tool, `primed_bare` results describe the replies in which the model answered directly.
+
+**3. Codex's web search was not switched off (9 November 2026).** Logged before any review was
+judged or scored. Amendment 1 says tools are off for Codex. They were not. `web_search="disabled"`
+and `mcp_servers={}` do not reach Codex's built-in apps connector (`codex_apps`), whose
+`search_service.web_run` tool searches the web. When the second attempt kept its raw events, all
+seven `primed_bare` replies that showed a tool event had used it. Six searched for the paper's
+retraction or withdrawal, for example `"2505.07284" withdrawn error`, and three of those opened the
+paper's arXiv page. One searched for facts about a public dataset the paper used. The 14
+first-attempt events were not kept, so it is not known what they were, beyond being tool events. The detector discarded
+every one of these replies, and none of the 664 saved stage 1 replies shows a tool event. So no saved
+review used the web, but the replies were made with search available. From now on Codex runs with
+its tool features switched off (`--disable` for `apps`, `shell_tool`, `unified_exec`, browser and
+computer use, plugins and the rest of `CODEX_DISABLED_FEATURES` in `cli_llm.py`). Asked directly to
+search, it then replies that search is unavailable. This applies to the third attempt for the seven
+`primed_bare` papers still without a review, to all judging, and to every later run. The six other
+stage 1 arms and the 96 saved `primed_bare` replies are kept, not rerun, because none of them used a
+tool. Each table says which runtime its replies came from. The shell was never usable: in this
+configuration Codex rejects a command by policy before it runs, without emitting an event. The
+search attempts are themselves a result, reported with Deviation 2's tool-event rates. Told the paper
+was retracted, the agent tried to look up the answer rather than find the flaw.

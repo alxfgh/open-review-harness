@@ -56,6 +56,24 @@ _CODEX_TOOL_EVENTS = re.compile(
     r"exec_command|command_execution|patch_apply|file_change|mcp_tool_call|web_search|tool_call",
     re.I,
 )
+# Codex features that give the agent a tool. `web_search="disabled"` and `mcp_servers={}` do not
+# reach the built-in `codex_apps` connector, whose `search_service.web_run` searches the web, so it
+# is switched off here with the rest (Deviation 3). Names are from `codex features list` (0.167).
+CODEX_DISABLED_FEATURES = (
+    "apps",
+    "plugins",
+    "remote_plugin",
+    "browser_use",
+    "browser_use_external",
+    "in_app_browser",
+    "computer_use",
+    "image_generation",
+    "multi_agent",
+    "tool_suggest",
+    "skill_search",
+    "shell_tool",
+    "unified_exec",
+)
 _FENCE = re.compile(r"^```(?:json)?\s*|\s*```$", re.I)
 
 
@@ -332,36 +350,7 @@ class CliLLM:
             schema_path = folder / "schema.json"
             schema_path.write_text(json.dumps(request.schema), encoding="utf-8")
             last = folder / "last.txt"
-            command = [
-                *find_codex(),
-                "exec",
-                "--json",
-                "--ephemeral",
-                "--ignore-user-config",
-                "--ignore-rules",
-                "--skip-git-repo-check",
-                "--sandbox",
-                "read-only",
-                "-C",
-                str(work),
-                "-m",
-                model.cli_model or model.name,
-                "-c",
-                'approval_policy="never"',
-                "-c",
-                "notify=[]",
-                "-c",
-                "mcp_servers={}",
-                "-c",
-                'web_search="disabled"',
-                "--output-schema",
-                str(schema_path),
-                "-o",
-                str(last),
-                "-",
-            ]
-            if model.effort:
-                command[-1:-1] = ["-c", f'model_reasoning_effort="{model.effort}"']
+            command = codex_command(find_codex(), model, work, schema_path, last)
             # Codex has no flag to replace its own instructions, so the system prompt leads the message.
             stdin = f"<instructions>\n{request.system}\n</instructions>\n\n{request.user}"
             code, out, err = await self._run(command, stdin, str(work))
@@ -371,6 +360,39 @@ class CliLLM:
                 raise ProviderError("codex: not signed in")
             raise ProviderError(f"codex exited with code {code}")
         return parse_codex_events(out, text)
+
+
+def codex_command(
+    base: list[str], model: ModelInfo, work: Path, schema_path: Path, last: Path
+) -> list[str]:
+    command = [
+        *base,
+        "exec",
+        "--json",
+        "--ephemeral",
+        "--ignore-user-config",
+        "--ignore-rules",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "read-only",
+        "-C",
+        str(work),
+        "-m",
+        model.cli_model or model.name,
+        "-c",
+        'approval_policy="never"',
+        "-c",
+        "notify=[]",
+        "-c",
+        "mcp_servers={}",
+        "-c",
+        'web_search="disabled"',
+    ]
+    for feature in CODEX_DISABLED_FEATURES:
+        command += ["--disable", feature]
+    if model.effort:
+        command += ["-c", f'model_reasoning_effort="{model.effort}"']
+    return [*command, "--output-schema", str(schema_path), "-o", str(last), "-"]
 
 
 def describe_runtime(model: ModelInfo) -> dict[str, Any]:
@@ -386,7 +408,10 @@ def describe_runtime(model: ModelInfo) -> dict[str, Any]:
     if model.provider == "codex":
         return {
             "runtime": "Codex CLI exec",
-            "tools": "read-only sandbox, user config ignored, no MCP, no web search; any tool use voids the call",
+            "tools": (
+                "read-only sandbox, user config ignored, no MCP, no web search, built-in apps "
+                "connector, shell and other tool features disabled; any tool use voids the call"
+            ),
             "system_prompt": "Codex's own instructions kept; harness prompt prepended to the message",
             "reasoning_effort": model.effort,
         }

@@ -193,4 +193,12 @@ never model output. Nothing above changes; these analyses are secondary.
 
 ## Deviations
 
-None yet.
+**1. Judges run through Codex (9 November 2026).** Logged before any review was judged. To avoid
+API spend, the two preregistered judge models, `gpt-6.1-sol` and `gpt-6.1-terra`, run through the Codex
+CLI on a subscription (`codex/gpt-6.1-sol`, `codex/gpt-6.1-terra`), not through the API. The
+models, the judge prompts, the both-judges-agree exact@k rule and the shuffled-reason baseline are
+unchanged. What differs is the runtime: Codex keeps its own base instructions, and output is held to
+the schema by Codex's `--output-schema` (see Amendment 1). As Amendment 1 requires, a random 10% of
+the judged pairs will be re-judged through the API before any result is published, and agreement
+between the two will be reported. Results remain labelled as not human-checked until the 30-decision
+audit is done.

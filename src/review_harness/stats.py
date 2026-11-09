@@ -88,6 +88,34 @@ def mantel_haenszel(
     return odds_ratio, math.erfc(math.sqrt(statistic / 2))
 
 
+def length_adjusted(
+    withdrawn: dict[str, bool], controls: dict[str, bool], chars: dict[str, int]
+) -> dict | None:
+    """A withdrawn-versus-control yes/no comparison within two length strata (Amendment 2).
+
+    Controls are not matched on length, and a longer paper offers more chances of a fatal finding.
+    Splitting at the pooled median length and combining the strata with Mantel-Haenszel removes most
+    of that difference without fitting a model. None if there are too few papers or no lengths.
+    """
+    keys = [*withdrawn, *controls]
+    if len(keys) < 4 or any(k not in chars for k in keys):
+        return None
+    lengths = sorted(chars[k] for k in keys)
+    median = lengths[len(lengths) // 2]
+    tables = []
+    for below in (True, False):
+        w = [v for k, v in withdrawn.items() if (chars[k] < median) is below]
+        c = [v for k, v in controls.items() if (chars[k] < median) is below]
+        tables.append((sum(w), len(w) - sum(w), sum(c), len(c) - sum(c)))
+    odds_ratio, p = mantel_haenszel(tables)
+    return {
+        "median_chars": median,
+        "strata": [list(t) for t in tables],
+        "odds_ratio": None if odds_ratio is None else round(odds_ratio, 4),
+        "p": round(p, 6),
+    }
+
+
 def cohen_kappa(pairs: list[tuple[bool, bool]]) -> float | None:
     """Agreement between two yes/no raters beyond chance. None if it cannot be computed."""
     if not pairs:

@@ -45,7 +45,7 @@ from review_harness.stats import (
     auroc,
     auroc_interval,
     fisher_exact,
-    mantel_haenszel,
+    length_adjusted,
     mcnemar_exact,
     wilson_interval,
 )
@@ -216,34 +216,6 @@ def _paired(a: dict[str, bool], b: dict[str, bool]) -> dict[str, Any]:
     }
 
 
-def _length_adjusted(
-    withdrawn: dict[str, bool], controls: dict[str, bool], chars: dict[str, int]
-) -> dict[str, Any] | None:
-    """The withdrawn-versus-control comparison within two length strata (Amendment 2).
-
-    Controls are not matched on length, and a longer paper offers more chances of a fatal finding.
-    Splitting at the pooled median length and combining the strata with Mantel-Haenszel removes most
-    of that difference without a model.
-    """
-    keys = [*withdrawn, *controls]
-    if len(keys) < 4:
-        return None
-    lengths = sorted(chars[k] for k in keys)
-    median = lengths[len(lengths) // 2]
-    tables = []
-    for in_stratum in (lambda k: chars[k] < median, lambda k: chars[k] >= median):
-        w = [v for k, v in withdrawn.items() if in_stratum(k)]
-        c = [v for k, v in controls.items() if in_stratum(k)]
-        tables.append((sum(w), len(w) - sum(w), sum(c), len(c) - sum(c)))
-    odds_ratio, p = mantel_haenszel(tables)
-    return {
-        "median_chars": median,
-        "strata": [list(t) for t in tables],
-        "odds_ratio": None if odds_ratio is None else round(odds_ratio, 4),
-        "p": round(p, 6),
-    }
-
-
 def summarize(
     manifest: dict[str, Any],
     records: list[ReviewRecord],
@@ -335,7 +307,7 @@ def summarize(
                     "withdrawn": _rate(a, len(w)),
                     "controls": _rate(cc, len(c)),
                     "p": round(fisher_exact(a, b, cc, d), 6),
-                    "length_adjusted": _length_adjusted(w, c, chars),
+                    "length_adjusted": length_adjusted(w, c, chars),
                 }
         if PRIMED in exact and ZERO_SHOT in exact:
             tests["C_being_told_helps_find_the_real_flaw"] = {

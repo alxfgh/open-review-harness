@@ -13,7 +13,13 @@ from review_harness.judge import SHUFFLED_PAIR, TOP_K, TRUE_PAIR, JudgedPair
 from review_harness.llm import get_model
 from review_harness.review import HARNESS, MEMORY, ZERO_SHOT, ReviewRecord
 from review_harness.schemas import MatchKind, Severity
-from review_harness.stats import cohen_kappa, fisher_exact, mcnemar_exact, wilson_interval
+from review_harness.stats import (
+    cohen_kappa,
+    fisher_exact,
+    length_adjusted,
+    mcnemar_exact,
+    wilson_interval,
+)
 
 ALPHA_SIGNAL = 0.01
 ALPHA = 0.05
@@ -165,7 +171,8 @@ def build_summary(
                     len(done_external),
                 )
 
-        result["tests"] = _tests(model_name, primary, controls, record_index, hits)
+        chars = {key: int(paper.get("chars") or 0) for key, paper in papers.items()}
+        result["tests"] = _tests(model_name, primary, controls, record_index, hits, chars)
         summary["models"][model_name] = result
     return summary
 
@@ -191,7 +198,7 @@ def _judge_agreement(judged: list[JudgedPair]) -> dict[str, Any] | None:
     }
 
 
-def _tests(model, primary, controls, record_index, hits) -> dict[str, Any]:
+def _tests(model, primary, controls, record_index, hits, chars=None) -> dict[str, Any]:
     """The preregistered tests, in the same order as PREREGISTRATION.md."""
     tests: dict[str, Any] = {}
 
@@ -233,15 +240,16 @@ def _tests(model, primary, controls, record_index, hits) -> dict[str, Any]:
             "passed": only_harness > only_zero and p < ALPHA,
         }
 
-    def fatal_flagged(keys: list[str]) -> tuple[int, int]:
-        done = [
-            record_index[(model, HARNESS, k)] for k in keys if (model, HARNESS, k) in record_index
-        ]
-        flagged = sum(1 for r in done if any(f.severity is Severity.fatal for f in r.findings))
-        return flagged, len(done)
+    def fatal_by_paper(keys: list[str]) -> dict[str, bool]:
+        return {
+            k: any(f.severity is Severity.fatal for f in record_index[(model, HARNESS, k)].findings)
+            for k in keys
+            if (model, HARNESS, k) in record_index
+        }
 
-    flagged_withdrawn, n_withdrawn = fatal_flagged(primary)
-    flagged_control, n_control = fatal_flagged(controls)
+    flags_withdrawn, flags_control = fatal_by_paper(primary), fatal_by_paper(controls)
+    flagged_withdrawn, n_withdrawn = sum(flags_withdrawn.values()), len(flags_withdrawn)
+    flagged_control, n_control = sum(flags_control.values()), len(flags_control)
     if n_withdrawn and n_control:
         p = fisher_exact(
             flagged_withdrawn,
@@ -256,6 +264,8 @@ def _tests(model, primary, controls, record_index, hits) -> dict[str, Any]:
             "p": round(p, 5),
             "passed": (flagged_withdrawn / n_withdrawn) > (flagged_control / n_control)
             and p < ALPHA,
+            # Amendment 2, secondary: controls are longer, so also within length strata.
+            "length_adjusted": length_adjusted(flags_withdrawn, flags_control, chars or {}),
         }
 
     harness_records = [
@@ -342,11 +352,19 @@ def render_markdown(summary: dict[str, Any]) -> str:
             detail = ", ".join(
                 f"{key} {value}"
                 for key, value in test.items()
-                if key not in ("question", "passed", "withdrawn", "controls")
+                if key not in ("question", "passed", "withdrawn", "controls", "length_adjusted")
             )
             if "withdrawn" in test:
                 detail += (
                     f"; withdrawn {_pct(test['withdrawn'])}; controls {_pct(test['controls'])}"
+                )
+            adjusted = test.get("length_adjusted")
+            if adjusted:
+                ratio = adjusted["odds_ratio"]
+                detail += "; length-adjusted (secondary) " + (
+                    f"OR {ratio:.2f}, p {adjusted['p']:.4f}"
+                    if ratio is not None
+                    else f"p {adjusted['p']:.4f}"
                 )
             lines.append(f"| {test['question']} | {outcome} | {detail} |")
     return "\n".join(lines) + "\n"

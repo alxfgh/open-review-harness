@@ -250,6 +250,15 @@ class TestSummary:
         tests = self.build(control_fatal=4)["models"][self.MODEL_NAME]["tests"]
         assert tests["4_flags_withdrawn_more_than_controls"]["passed"] is False
 
+    def test_controls_test_also_reports_a_length_adjusted_check(self):
+        summary = self.build(control_fatal=4)
+        test = summary["models"][self.MODEL_NAME]["tests"]["4_flags_withdrawn_more_than_controls"]
+        adjusted = test["length_adjusted"]  # Amendment 2: secondary, within length strata.
+        assert adjusted is not None and 0 <= adjusted["p"] <= 1
+        papers = test["withdrawn"]["n"] + test["controls"]["n"]
+        assert sum(sum(stratum) for stratum in adjusted["strata"]) == papers
+        assert "length-adjusted (secondary)" in render_markdown(summary)
+
     def test_invented_quotes_fail_the_quote_test(self):
         manifest = manifest_with(n_withdrawn=1, n_controls=0)
         records = [

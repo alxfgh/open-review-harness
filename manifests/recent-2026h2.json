@@ -1,0 +1,3814 @@
+{
+ "name": "recent-2026h2",
+ "created_at": "2026-11-09T17:34:08+00:00",
+ "harness_version": "0.1.0",
+ "source": "arXiv API, comments mentioning a withdrawal",
+ "window": {
+  "withdrawn_after": "2026-06-30",
+  "withdrawn_until": "2026-11-09"
+ },
+ "seed": 20261109,
+ "filters_sha256": "eddceb096173abaa86a316d349f761bcb38e7b83930c0550e3a4d44d06851157",
+ "prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+ "counts": {
+  "harvested": 529,
+  "usable_candidates": 57,
+  "selected_withdrawn": 53,
+  "selected_controls": 50,
+  "excluded": {
+   "admin_action: arXiv admin action, not an author's reason": 62,
+   "control_not_found": 3,
+   "manual: flaw is in a lemma of another paper that this one relies on": 2,
+   "manual: found by reanalysing data, which the text cannot show": 1,
+   "manual: mostly results that changed under a new evaluation, which the text cannot show": 1,
+   "manual: names the results affected but not the error": 1,
+   "manual: says only that a proof of an application contained errors": 1,
+   "manual: says only that errors exist and that key estimates do not hold": 1,
+   "manual: says only that errors were identified in several sections": 1,
+   "manual: says only that gaps were found in the proofs": 1,
+   "manual: says only that there are errors and inconsistencies in the presentation": 1,
+   "manual: says only that there are errors in references, terminology and reporting": 1,
+   "manual: says only that there are errors in the formal analysis": 1,
+   "manual: says only that there are methodological errors in the experimental design": 1,
+   "manual: says only that there are theoretical errors in several core arguments": 1,
+   "manual: says only that there was a bug in a data pipeline": 1,
+   "manual: says only that there was an error in the proof of a main theorem": 1,
+   "manual: the feature was shown to be an observational artifact by outside analysis": 1,
+   "manual: values were computed on incomplete task sets, which the text cannot show": 1,
+   "manual: wrong version: the error was in v2 and v3 had already withdrawn the claim": 1,
+   "not_about_error: authorship": 54,
+   "not_about_error: duplicate": 10,
+   "not_about_error: legal_or_policy": 20,
+   "not_about_error: no stated error": 154,
+   "not_about_error: plans": 42,
+   "not_about_error: superseded": 36,
+   "partial_correction: corrects a claim, not a withdrawal": 28,
+   "text_reveals_error": 1,
+   "text_too_long": 1,
+   "unavailable: source returned 404": 2,
+   "vague: states an error without saying what it is": 47
+  }
+ },
+ "papers": [
+  {
+   "key": "2511.05345v3",
+   "arxiv_id": "2511.05345",
+   "version": 3,
+   "role": "withdrawn",
+   "title": "Threshold Resolvent Singularities and the Infrared Structure of Linearized Gravity",
+   "category": "gr-qc",
+   "posted": "2025-11-07",
+   "source": "latex",
+   "chars": 72801,
+   "text_sha256": "1521f90a929dbef681509e9a759b07475225d6f17fc0ddaac3d59ca0297ce577",
+   "withdrawal_version": 4,
+   "withdrawn": "2026-07-25",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author after the discovery of substantive errors that invalidate the central results. The Weyl-sequence and weighted-resolvent argument does not distinguish the proposed inverse-cube curvature regime from the free operator, and the dimensional-scaling argument does not establish the claimed critical exponent",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2409.01981v2",
+   "arxiv_id": "2409.01981",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Every tree on $n$ edges decomposes $K_{nx,nx}$ and $K_{2nx+1}$",
+   "category": "math.CO",
+   "posted": "2024-09-03",
+   "source": "latex",
+   "chars": 90894,
+   "text_sha256": "f501c8ae86481f6f498c216b2dcb60222a8d637d012dac9972031a5d7644d46c",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-01",
+   "discoverable": "text",
+   "gold": "Withdrawn due to an error in the proof of Lemma 4.3 (Composition Lemma), which was based on the argument in arXiv:2202.03178v2",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2604.08911v1",
+   "arxiv_id": "2604.08911",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Sampleability transport, nonlinear regularization, and the porous medium flow",
+   "category": "math.AP",
+   "posted": "2026-04-10",
+   "source": "latex",
+   "chars": 78816,
+   "text_sha256": "702cd4b65298866f5e4a011104905cdf0b695214357a837d8566d712782d5883",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-08",
+   "discoverable": "text",
+   "gold": "Withdrawn due to errors. Definition 3.2 forces every measure in the sampleable class to have full support on B_R, so D_C(mu) is bounded below by a positive constant for every mu and no Gaussian smoothing lies in the class. The convexification cost of Definition 3.6 is zero for every measure, so Theorem 3.7 is false. Theorem 4.8 and Proposition 4.10 are unproved and Theorem 5.3 is wrong",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2506.18078v1",
+   "arxiv_id": "2506.18078",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Identifiable Convex-Concave Regression via Sub-gradient Regularised Least Squares",
+   "category": "stat.ML",
+   "posted": "2025-06-22",
+   "source": "pdf",
+   "chars": 47097,
+   "text_sha256": "533aeb3020f052f44f31a356dbb458f76a1140379ffbf5cb42af92e1eaaa2294",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-27",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author because the identifiability result in Sections 3.3-3.4 is incorrect. Residual orthogonality depends only on the fitted sum and therefore cannot identify the convex-concave decomposition; the proof also incorrectly treats the difference of two concave functions as necessarily affine. A substantially revised manuscript is in preparation",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.13406v1",
+   "arxiv_id": "2512.13406",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "The McKay conjecture with coprime group automorphisms and the Okuyama-Wajima argument",
+   "category": "math.RT",
+   "posted": "2025-12-15",
+   "source": "latex",
+   "chars": 52246,
+   "text_sha256": "0ea93f3de99673cd80e8bcf377f4fc29307f783cea30de3242716a0d141adaae",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-31",
+   "discoverable": "text",
+   "gold": "Version 2 corrects an error in the statement of Theorem B that affected the proof, but not the statement, of Theorem A. The order of these results has now been swapped: the original Theorem B (now Theorem A) has been modified with a stronger hypothesis. The authors thank Luis Pablo Colmenar for pointing out the error. The journal version of this paper in J. Pure Appl. Algebra has been retracted",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2603.13891v1",
+   "arxiv_id": "2603.13891",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Large Language Models Reproduce Racial Stereotypes When Used for Text Annotation",
+   "category": "cs.CL",
+   "posted": "2026-03-14",
+   "source": "latex",
+   "chars": 52771,
+   "text_sha256": "bf490049feae3f0f45557d73cde8bed126896b41727c4d6f5d4126598b8e6fb5",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-12",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author due to a confound in stimulus assignment that invalidates the main results; addressing it requires re-running the experiment with matched stimuli",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2603.02104v2",
+   "arxiv_id": "2603.02104",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "ACDC: Adaptive Curriculum Planning with Dynamic Contrastive Control for Goal-Conditioned Reinforcement Learning in Robotic Manipulation",
+   "category": "cs.RO",
+   "posted": "2026-03-02",
+   "source": "latex",
+   "chars": 55436,
+   "text_sha256": "91ea5c20048bfa368dc895631e74a986b57e8d04d32e2e4d62d55b8bdec65032",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-08-03",
+   "discoverable": "external",
+   "gold": "Withdrawn by the authors after identifying inconsistencies between the described adaptive curriculum and the implementation used to generate the reported experiments, particularly in the success-rate feedback mechanism and replay-weight schedule. These issues require the experiments and conclusions to be reevaluated",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2607.19839v1",
+   "arxiv_id": "2607.19839",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Finite-horizon quantile martingale posteriors: raw-urn laws and matrix-gain regression",
+   "category": "math.ST",
+   "posted": "2026-07-22",
+   "source": "latex",
+   "chars": 130843,
+   "text_sha256": "15c7bad14a48dbba694335edb39ec97685ae796b426d1f4b31f9f2114e10e555",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-11",
+   "discoverable": "text",
+   "gold": "The author has identified substantive flaws in the theoretical arguments supporting the finite-horizon quantile calibration law and the matrix-gain regression result (Sections 3--4 and Supplementary Sections S2--S3). These flaws affect the paper's main conclusions, so the paper is withdrawn",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.09641v2",
+   "arxiv_id": "2601.09641",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "FairShare: Auditable Geographic Fairness for Multi-Operator LEO Spectrum Sharing",
+   "category": "cs.NI",
+   "posted": "2026-01-14",
+   "source": "latex",
+   "chars": 44009,
+   "text_sha256": "c86b4666772c92011f281e9d230ba570ac8ad93e969196b2861cdd3b7b0da1a6",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-10-17",
+   "discoverable": "external",
+   "gold": "Withdrawn by the authors. An audit of the simulation code found an error in the satellite beam-gain model (off-boresight angle computed incorrectly) and a non-standard clutter model, which together produced the reported urbanârural disparity. With these corrected, the main conclusions do not hold.",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2110.00067v2",
+   "arxiv_id": "2110.00067",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "On the TVD property of second order methods for 2D scalar conservation laws",
+   "category": "math.NA",
+   "posted": "2021-09-30",
+   "source": "latex",
+   "chars": 56758,
+   "text_sha256": "94e07421a97c542680cb12d29a4ed602fd990ca4da03acd3d44ac5b7dcd21d4c",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-07-05",
+   "discoverable": "text",
+   "gold": "The paper is being withdrawn because one of the main statements concerning the TVD property of second-order methods for two-dimensional scalar conservation laws lacks sufficient conditions. A counterexample has been found showing that the claimed TVD property does not hold under the conditions stated in the paper. This affects the validity of the corresponding result and its conclusions",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.27054v1",
+   "arxiv_id": "2605.27054",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Lack of Gevrey solvability for a model operator",
+   "category": "math.AP",
+   "posted": "2026-05-26",
+   "source": "latex",
+   "chars": 111803,
+   "text_sha256": "61b4a9f4acfb4275dde7ca969031beebcb55555d3bc1a4721abfb0d2f6b15d27",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-25",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author because an error in the localization argument invalidates the proof of Theorem 1.1. The comparison between temporal growth and the size of the localized Cauchy data is not justified. The claimed Gevrey nonsolvability result is therefore withdrawn",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2003.01694v1",
+   "arxiv_id": "2003.01694",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Linear stability analysis for 2D shear flows near Couette in the isentropic Compressible Euler equations",
+   "category": "math.AP",
+   "posted": "2020-03-03",
+   "source": "latex",
+   "chars": 173152,
+   "text_sha256": "535bb7feea59a8a7e7190a121ed01c6aabd599ac33efdee4f0527b864a036da1",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-29",
+   "discoverable": "text",
+   "gold": "Withdrawn due to an error in the analysis of shear flows near Couette: the weight v defined in (5.19) was incorrectly treated as self-adjoint in the energy identities. The results for the exact Couette flow are unaffected and were subsequently included, improved and extended in arXiv:2101.01696",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2606.27571v2",
+   "arxiv_id": "2606.27571",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Kimball's Data Warehouse Architecture: Evaluating the Challenges of Conformed Data against the Inmon Model",
+   "category": "cs.DB",
+   "posted": "2026-06-25",
+   "source": "latex",
+   "chars": 17182,
+   "text_sha256": "bd95e1fa4430061995f2c3825d80e40e0e4a6718e6a75b01b13f2d4c5c0be484",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-11-04",
+   "discoverable": "text",
+   "gold": "Withdrawn due to factual errors. Sec. IV wrongly states that Inmon's data marts are normalised (3NF; they are typically dimensional) and dates Inmon's book to 1990 (it is 1992). The abstract misquotes Inmon's endorsement and wrongly claims Kimball and Inmon were not rivals. Figs. 1, 2, 3, 5, 6, 8 and 9 reproduce third-party material. Please do not cite this version",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.18350v4",
+   "arxiv_id": "2601.18350",
+   "version": 4,
+   "role": "withdrawn",
+   "title": "Adapter Merging Reactivates Latent Reasoning Traces: A Mechanism Analysis",
+   "category": "cs.CL",
+   "posted": "2026-01-26",
+   "source": "latex",
+   "chars": 39604,
+   "text_sha256": "9bc50c29c03c8451e1693ffbb4747bb72955c59ede720484d3118a60a63652bd",
+   "withdrawal_version": 5,
+   "withdrawn": "2026-07-27",
+   "discoverable": "external",
+   "gold": "Withdrawn by the authors after identifying an implementation error in adapter coefficient scaling that materially affects the main empirical results and invalidates the current conclusions. A corrected reanalysis is in progress",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2603.24155v2",
+   "arxiv_id": "2603.24155",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Goal-Oriented Reactive Simulation for Closed-Loop Trajectory Prediction",
+   "category": "cs.RO",
+   "posted": "2026-03-25",
+   "source": "latex",
+   "chars": 69784,
+   "text_sha256": "6e066b51c917023a9900d26a75556ee9c4bda8fe2f5c6f2598bba0060a79ced6",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-18",
+   "discoverable": "external",
+   "gold": "The core claim that the simulation becomes reactive does not hold, even though the findings on its effects on the ego vehicle remain valid. This claim was re-evaluated based on reviewer feedback, and the paper is therefore being retracted. However, the valid results regarding the effects on the ego vehicle are being merged into the parallel study: https://arxiv.org/abs/2603.23393",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.22740v3",
+   "arxiv_id": "2512.22740",
+   "version": 3,
+   "role": "withdrawn",
+   "title": "Multi-Task Learning for Metal Alloy Property Prediction: An Empirical Study of Negative Transfer and Mitigation Strategies",
+   "category": "cs.LG",
+   "posted": "2025-12-28",
+   "source": "latex",
+   "chars": 82754,
+   "text_sha256": "9e89957bee0c79f8c79a520cc41708a0110567e39fd0a8f6638fc365c095b34e",
+   "withdrawal_version": 4,
+   "withdrawn": "2026-10-23",
+   "discoverable": "external",
+   "gold": "Withdrawn by the author due to critical issues identified in the experimental methodology and dataset structure: the reported negative transfer and optimization penalties were found to be artifacts of data leakage and lack of headroom over trivial lookup baselines, and the main findings failed to generalize to an external benchmark (JARVIS-DFT)",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2602.22673v2",
+   "arxiv_id": "2602.22673",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Forecasting Bacterial Antimicrobial Resistance Trends Using Machine Learning on WHO GLASS Surveillance Data: A Retrieval-Augmented Generation Approach for Policy Decision Support",
+   "category": "cs.LG",
+   "posted": "2026-02-26",
+   "source": "latex",
+   "chars": 28348,
+   "text_sha256": "0fcb5bf637a7740998084b7aba784b00963622ac226279d4f27debbe25176205",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-26",
+   "discoverable": "external",
+   "gold": "v3: correction. A leakage audit found four defects in the v2 feature construction; on the corrected panel a persistence forecast (MAE 5.79 pp) significantly beats XGBoost (6.55 pp, p = 0.001) and the v2 claim of an 85.3% improvement is withdrawn. See the Correction notice. Code and corrected panel: github.com/TanvirTurja/amr-forecasting-rag ; full reanalysis under journal review",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2511.03532v1",
+   "arxiv_id": "2511.03532",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Curvature Decay and the Spectrum of the Non-Abelian Laplacian on $\\mathbb{R}^3$",
+   "category": "math-ph",
+   "posted": "2025-11-05",
+   "source": "latex",
+   "chars": 40240,
+   "text_sha256": "ff5ec9b9326aec087d6e7fcb89ed52c22bd3e3a6705dda01696485b4c3c57257",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-25",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author after the discovery of substantive errors in the main argument. In particular, the purported critical example does not establish the claimed sharp r^--3 curvature-decay threshold, and several compactness and gauge estimates used in the proof are invalid. These issues undermine the principal conclusions of the paper",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.27911v1",
+   "arxiv_id": "2605.27911",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "SuiChat-CN: Benchmarking Contextual Suicide Risk Assessment in Chinese Group Chats",
+   "category": "cs.AI",
+   "posted": "2026-05-27",
+   "source": "latex",
+   "chars": 105625,
+   "text_sha256": "ebbd365bb93741ee2578b74e8fcf716b63ab74184bf39677d51b46150e718506",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-30",
+   "discoverable": "external",
+   "gold": "Withdrawn by the authors due to methodological flaws in the benchmark construction and evaluation pipeline: specifically, model overlap between the multi-LLM silver-annotation pool (Section 3.3) and the evaluated models (Section 4), as well as cross-split context leakage from bidirectional dialogue expansion (Section 3.2), which invalidate the reported experimental results and conclusions",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2604.03947v1",
+   "arxiv_id": "2604.03947",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Uniform Sampling of Proper Graph Colorings via Soft Coloring and Partial Rejection Sampling",
+   "category": "cs.DS",
+   "posted": "2026-04-05",
+   "source": "latex",
+   "chars": 93293,
+   "text_sha256": "1d20e4ddf889c677444e360ab4a6f1c2457963e3d7064ef9728340331e678f25",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-27",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author Sarat Moka: the proof of Theorem 2 is incorrect. The resampling set constructed in Section 4 is not that of the general partial rejection sampling algorithm of Guo, Jerrum and Liu (STOC 2017), so their Theorem 4.5 does not apply and exactness of the proposed algorithm is not established. Theorems 3, 5 and 6, which depend on Theorem 2, are likewise unproven",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2410.13840v2",
+   "arxiv_id": "2410.13840",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "A Proof of the Tree Packing Conjecture",
+   "category": "math.CO",
+   "posted": "2024-10-17",
+   "source": "latex",
+   "chars": 67009,
+   "text_sha256": "854eed38290ec3a865d22f8af1ac4db6f1eb1c2cdd92044adbbc0ed1ad7da47d",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-01",
+   "discoverable": "text",
+   "gold": "Withdrawn due to an error in the proof of Lemma 3.10 (Composition Lemma), which was based on the argument in arXiv:2202.03178v2",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2404.17409v1",
+   "arxiv_id": "2404.17409",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Enhanced Whispering Gallery Mode Phase Shift using Indistinguishable Photon Pairs",
+   "category": "quant-ph",
+   "posted": "2024-04-26",
+   "source": "latex",
+   "chars": 34106,
+   "text_sha256": "686c873b5c2ad354e2f0e3412d975fe31f5daa5d72f94cbd9c8aecc142dee0f4",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-22",
+   "discoverable": "text",
+   "gold": "Withdrawn due to inconsistencies identified during verification of the theoretical framework. Specifically, the treatment of the environment modes in Eq. 6 and an incorrectly normalised state in Eq. 8. Correcting this significantly changes the results and the reported sensing advantage no longer occurs for measuring WGM resonance shifts",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2510.24789v1",
+   "arxiv_id": "2510.24789",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Cross-Lingual Summarization as a Black-Box Watermark Removal Attack",
+   "category": "cs.CL",
+   "posted": "2025-10-27",
+   "source": "latex",
+   "chars": 23391,
+   "text_sha256": "a2ed0d66bd82039fbfb0bb029c939049553646143813eece1d3bdcd410c349c3",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-03",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author. The experiments lack length controls to isolate cross-lingual transfer from the effect of shortening on detection. The paper also lacks semantic or quality preservation metrics under the transformation and does not demonstrate that output remains useful. As a result, the central claim that cross-lingual summarization outperforms prior attacks is not adequately supported.",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2607.00728v1",
+   "arxiv_id": "2607.00728",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "When to Repair a Graph ANN Index: A Matched-Budget Negative Result, and the Interpolated-Baseline Trap That Hid It",
+   "category": "cs.DB",
+   "posted": "2026-07-01",
+   "source": "latex",
+   "chars": 14276,
+   "text_sha256": "4dcdddd48ec47a65f4bebed4ea1961f5fdf0feb89b5b78d4a0bfbba3bf5fb2fa",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-10",
+   "discoverable": "external",
+   "gold": "10 pages, 2 figures. v2 is a substantial correction: v1's main result and mechanism claim are withdrawn. v1 compared against an interpolated, never-executed fixed-cadence baseline; running it erases the effect. Four pre-registered controls, asserted in v1 as passing, were unimplemented; all now run, and budget parity fails. Code: https://github.com/samyama-ai/updatable-graph-index",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.25630v1",
+   "arxiv_id": "2605.25630",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "A Semigroup Approach to Weighted Weyl-Sonine Operators: Bypassing Bernstein Functions for Well-Posedness",
+   "category": "math.FA",
+   "posted": "2026-05-25",
+   "source": "latex",
+   "chars": 40604,
+   "text_sha256": "45d9abed635dc79998e89f6719dc90ae033aff3f1ada127c36968a8365537c63",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-17",
+   "discoverable": "text",
+   "gold": "This paper has been withdrawn by the author due to a fundamental mathematical error in the similarity construction of Section 3 and the subsequent Bochner integration in Section 4. Specifically, the induced norm makes the transmutation operator an isometry, which prevents the deformed semigroup from acquiring the claimed additional decay required for the convergence of the non-local integrals",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2606.17028v1",
+   "arxiv_id": "2606.17028",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "HAMON: Passive Optical Sequence Mixing for Long-Horizon Forecasting",
+   "category": "cs.LG",
+   "posted": "2026-06-15",
+   "source": "latex",
+   "chars": 41115,
+   "text_sha256": "bcaa1664dfb6b7e54e902a63c7017c9ad9acd2d76f61a2989101d2e0bd645e54",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-22",
+   "discoverable": "external",
+   "gold": "Withdrawn after identifying an evaluation-window mismatch: the reported validation and test evaluations skip the first 336 target positions, making comparisons with cited baselines non-equivalent. This is not data leakage. Corrected evaluation preserves nontrivial forecasting behavior, but changes some benchmark results. A revised version may follow",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.16025v1",
+   "arxiv_id": "2512.16025",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Engineering Fractional Topological Superconductors: Numerical Bogoliubov-de Gennes Analysis for Parafermion Realization in FCI-Superconductor Heterostructures",
+   "category": "cond-mat.mes-hall",
+   "posted": "2025-12-17",
+   "source": "latex",
+   "chars": 82666,
+   "text_sha256": "73087e232462b78caef3c4bd1b94d29d3a61fc61e798ad326fbc20f47b26ec83",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-11-03",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author: the K-matrix used for the nu=2/3 state is incorrect, and the Bogoliubov-de Gennes results and numerical experimental signatures derived from it, which run through the whole paper, are therefore wrong. A corrected and substantially different analysis is given in arXiv:2610.01486",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.06021v1",
+   "arxiv_id": "2605.06021",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "PlotPick: AI-powered batch extraction of numerical data from scientific figures",
+   "category": "cs.CV",
+   "posted": "2026-05-07",
+   "source": "latex",
+   "chars": 11349,
+   "text_sha256": "f69aeab28774cc8b3af9db383b73406cc39f35f073975d2c576b1968aa58ae45",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-06",
+   "discoverable": "external",
+   "gold": "18 pages, 2 figures, 5 tables. Version 2 corrects version 1: its PlotQA scores used the wrong axis for most items; DePlot is now scored on the same ChartX items as the VLMs; the claim that every VLM beat DePlot on both benchmarks is withdrawn (all nine lead it in aggregate on six ChartX chart types only). See Section 7. Code and results: https://github.com/tommycarstensen/plotpick-validation",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.25530v1",
+   "arxiv_id": "2605.25530",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Location Prior Generation via Multi-Source Urban Data Fusion for Low-Altitude Air Mobility",
+   "category": "cs.CV",
+   "posted": "2026-05-25",
+   "source": "latex",
+   "chars": 54232,
+   "text_sha256": "233c68a40514762186579acb9e793574ad240cc230ac25aa0fc92f54b2c3d496",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-19",
+   "discoverable": "external",
+   "gold": "Withdrawn because key empirical claims in v1, including the 27-building result, MAE=3.07 m, and 5.0-5.5 m error/uncertainty bounds, were not supported by the archived source data and released implementation. The authors withdraw the paper to correct the scientific record. A substantially redesigned study will be submitted separately",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2407.09306v2",
+   "arxiv_id": "2407.09306",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "On the topological invariance of the algebraic multiplicity of holomorphic foliations",
+   "category": "math.CV",
+   "posted": "2024-07-12",
+   "source": "latex",
+   "chars": 58548,
+   "text_sha256": "2f4731d599e21acdce5179ab6d1baffd128d8378e45172c3551d0fda924f044d",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-10-25",
+   "discoverable": "text",
+   "gold": "A gap was identified in the proof of the theorem asserting the topological invariance of multiplicity one. Consequently, the theorem has been withdrawn from this version",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.05497v1",
+   "arxiv_id": "2601.05497",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Tree versus tree of preorder induced by rainbow forbidden subgraphs",
+   "category": "math.CO",
+   "posted": "2026-01-09",
+   "source": "latex",
+   "chars": 73834,
+   "text_sha256": "68295a386db5fd595d6e8a2e5add291d5ddfb1dd1b245be7c1c569758d7afb37",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-05",
+   "discoverable": "text",
+   "gold": "The proof of Lemma 5 contains a gap, and it is unclear whether the statement of the lemma itself is true. Since the main results depend on this lemma, the paper is withdrawn",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.05066v1",
+   "arxiv_id": "2605.05066",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "The Impossibility Triangle of Long-Context Modeling",
+   "category": "cs.CL",
+   "posted": "2026-05-06",
+   "source": "latex",
+   "chars": 118661,
+   "text_sha256": "ea4c77cc7b854a756c6d5c6a60c96773d9023d61e173a00660c976c303063652",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-06",
+   "discoverable": "text",
+   "gold": "Withdrawn because Section 4.2 contains a substantive error in the proof of the main theorem: Eq. (11) incorrectly drops the query key (k_i) when applying the data processing inequality. The positivity condition used in Eqs. (6) and (14) is also insufficient. These errors invalidate the main theorem",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.01855v7",
+   "arxiv_id": "2601.01855",
+   "version": 7,
+   "role": "withdrawn",
+   "title": "A countable-support symmetric iteration separating PP from AC",
+   "category": "math.LO",
+   "posted": "2026-01-05",
+   "source": "latex",
+   "chars": 213956,
+   "text_sha256": "a4a0cd7f1c6370f26296bb64501e09aef0f3599b0013c45a3d5eb114229eb7f7",
+   "withdrawal_version": 8,
+   "withdrawn": "2026-09-10",
+   "discoverable": "text",
+   "gold": "Major correction. The previously claimed final PP+not-AC construction is withdrawn. The package forcing targets right inverses, a stronger splitting principle incompatible with the intended seed preservation; the non-well-orderability and limit-stage SVC arguments also fail. The corrected manuscript retains the Cohen symmetric seed result and records the superseded approach",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2606.16674v2",
+   "arxiv_id": "2606.16674",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Effects on a metal that is proximately coupled to hyperbolic photon modes",
+   "category": "cond-mat.supr-con",
+   "posted": "2026-06-15",
+   "source": "latex",
+   "chars": 65054,
+   "text_sha256": "e71fe35acfb4aa116852709647869a09d9bb96b0f0832fe180e5660b8bea573e",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-07-26",
+   "discoverable": "text",
+   "gold": "The gauge field of the hyperbolic mode is nearly longitudinal. Instead of the Coulomb gauge we had treated it in the Weyl gauge. However, since the electron Green's function is gauge dependent, quantities like Z needs to be treated carefully and the expressions given in the paper are incorrect. This paper is being withdrawn and will be replaced later by one where these issues will be discussed",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.01953v1",
+   "arxiv_id": "2605.01953",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Schur States and Many-Body Quantum Walks on Line Graphs",
+   "category": "quant-ph",
+   "posted": "2026-05-03",
+   "source": "latex",
+   "chars": 40678,
+   "text_sha256": "b9061bef71dc24d162282a046e139b9d25703ed386fb7f7c1f892ab00876ee3e",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-30",
+   "discoverable": "text",
+   "gold": "12 pages. Complete rewrite of v1, new title. Withdrawn as erroneous: the Hermitian Schur-state definition (Def. 4), the Schur-product identity (Prop. 10), and the tree-counting results (Thm. 26, Cor. 28, 36). No result of v1 is used",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.01192v1",
+   "arxiv_id": "2605.01192",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Near-Floor Geometry Is Generic: Leverage Dispersion in Trained Overcomplete Codes",
+   "category": "cs.LG",
+   "posted": "2026-05-02",
+   "source": "latex",
+   "chars": 70329,
+   "text_sha256": "826fc54f324f1fb940f0bf402943f18d6486d0e432392b6a1dcc563064dacb5b",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-05",
+   "discoverable": "external",
+   "gold": "v2: 53 pages, 7 figures. Substantial revision and extension; title changed. Three formal statements in v1 were too strong and are corrected here (two need h_i <= 1/2; one is wrong at kappa_i = 1), and two empirical readings are withdrawn. See \"Changes from version 1\" in the manuscript. Code: github.com/hecboar/linear-readout-threshold-recovery",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.02960v5",
+   "arxiv_id": "2512.02960",
+   "version": 5,
+   "role": "withdrawn",
+   "title": "Conservation of Momentum and Energy in the Lorenz-Abraham-Dirac Equation of Motion",
+   "category": "physics.class-ph",
+   "posted": "2025-12-02",
+   "source": "latex",
+   "chars": 68192,
+   "text_sha256": "c5c41b6d665c13e8b3025e6a0164c8fdbf099b2849a31c2c74207131e2022f90",
+   "withdrawal_version": 6,
+   "withdrawn": "2026-10-19",
+   "discoverable": "text",
+   "gold": "In all the five versions of the manuscript, the definition of radiated energy in equation (9), on which much of the rest of the paper is based, is incorrect and thus the paper has been withdrawn",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.11877v4",
+   "arxiv_id": "2512.11877",
+   "version": 4,
+   "role": "withdrawn",
+   "title": "Teleportation=Translation: Continuous recovery of black hole information",
+   "category": "math-ph",
+   "posted": "2025-12-07",
+   "source": "latex",
+   "chars": 83417,
+   "text_sha256": "79ac92c3248aadd8268a7850f85959c18d1284dc0daff6312814efe1097ba8ee",
+   "withdrawal_version": 5,
+   "withdrawn": "2026-10-24",
+   "discoverable": "text",
+   "gold": "Withdrawn due to errors in Sections 3.3--3.4 and 4.2 of arXiv:2512.11877v4. The stated assumptions do not establish the canonical interpolation or $\\tilde G=2P$. A physics-oriented reformulation examining the conditions for continuous black-hole information recovery is being prepared for hep-th",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2502.20569v1",
+   "arxiv_id": "2502.20569",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Pair correlation for sums of two ordinates of zeros of the Riemann zeta function",
+   "category": "math.NT",
+   "posted": "2025-02-27",
+   "source": "latex",
+   "chars": 87783,
+   "text_sha256": "66fd23cc53b1d765014eef31bd66fe816d383ff579685f214503cf59f945ba6b",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-13",
+   "discoverable": "text",
+   "gold": "16 pages. v2 is a major revision with a new title (v1: \"Pair correlation: Variations on a theme\"). This version treats only pair correlation for sums of two ordinates, proving a stronger and more uniform asymptotic than the corresponding case mu=2 of v1. The proofs of Theorems 1.2 and 1.3 of v1 for general mu contain gaps, and those statements are withdrawn. Comments welcome",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2606.09191v1",
+   "arxiv_id": "2606.09191",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Asymptotic Optimality of Thompson Sampling for Risk-Averse Bandits with Sub-Gaussian Rewards",
+   "category": "cs.LG",
+   "posted": "2026-06-08",
+   "source": "latex",
+   "chars": 81708,
+   "text_sha256": "09d2b3568e8fdd24e9e3ff2a0201f3e16a4f4b86c6e8208a78e3f1fa6194bd7f",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-22",
+   "discoverable": "text",
+   "gold": "Withdrawn due to a counterexample identified after posting that invalidates a key step in the risk-averse regret bounds. The result does not hold as stated under the assumptions given. We are revising the analysis and will resubmit if the fix can be established rigorously",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.23419v3",
+   "arxiv_id": "2605.23419",
+   "version": 3,
+   "role": "withdrawn",
+   "title": "Generalized Stochastic Approximation of the Log-Likelihood Ratio for Robust Sequential Change-Point Detection",
+   "category": "stat.ME",
+   "posted": "2026-05-22",
+   "source": "latex",
+   "chars": 191394,
+   "text_sha256": "f5379e93999cad603cdec86862ee875e9dc1fbdffc0fe61ed7698795251723ab",
+   "withdrawal_version": 4,
+   "withdrawn": "2026-09-07",
+   "discoverable": "external",
+   "gold": "v4: scope narrowed to the theory. The benchmark study of v1-v3 is withdrawn: a scoring error counted a run with no alarm as a detection, inflating the proposed method only. Theory and proofs stand. The normal system is now normalised F = C_0+C_1, halving J(s) and doubling theta_0 -- units, not a correction of Theorem 2. Full account on page 1. 29 pages",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2607.18211v1",
+   "arxiv_id": "2607.18211",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Sensitivity of p_T Fluctuations to the QCD Equation of State",
+   "category": "nucl-th",
+   "posted": "2026-07-20",
+   "source": "latex",
+   "chars": 32417,
+   "text_sha256": "83467977765dd35b53cba8b86d28a66d29cc2a06923d20b4e8a73dc6414720dc",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-30",
+   "discoverable": "text",
+   "gold": "Withdrawn due to errors identified in the derivation of the Langevin evolution equation (dimensional inconsistencies and an error in the centrality-scaling ansatz) that require revision of the model",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2509.26066v2",
+   "arxiv_id": "2509.26066",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "An $\\ell^1$-Isometric Subspace of $C[0,1]$ with Countable Oscillating Spectrum",
+   "category": "math.FA",
+   "posted": "2025-09-30",
+   "source": "latex",
+   "chars": 49840,
+   "text_sha256": "633e2e6692da8a3465538877ffcddaa2aedfcf452c0bea2370e8ef79356bbc8b",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-11",
+   "discoverable": "text",
+   "gold": "Withdrawn by the author because the proof of the main theorem contains a serious error. In fact, the interval-tree construction produces an uncountable subset of the oscillating spectrum, so the claimed countability conclusion is not valid",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2408.13016v1",
+   "arxiv_id": "2408.13016",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "The Frame-Dragging effect on the excitation rate of atoms",
+   "category": "gr-qc",
+   "posted": "2024-08-23",
+   "source": "latex",
+   "chars": 28319,
+   "text_sha256": "c945972fcbc516350ecde8dfb144408db5a0bba918c96efe743441d343f0aa7e",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-07-24",
+   "discoverable": "text",
+   "gold": "Withdrawn by the authors because an error in the derivation leading to Eq. (16) invalidates the principal quantitative conclusions of the manuscript",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.11799v2",
+   "arxiv_id": "2601.11799",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Explicit separation of quadratic irrationals from the middle-third Cantor set",
+   "category": "math.NT",
+   "posted": "2026-01-16",
+   "source": "latex",
+   "chars": 63971,
+   "text_sha256": "77b663e5c1339291248a99cbe4a3df31d5e63d8a123f71fc60caacf018f33586",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-09-10",
+   "discoverable": "text",
+   "gold": "Major correction. The earlier log-square exit-time theorem and the resulting separation bound are withdrawn. The proof assumed finite exit while using the hypothesis to prove finite exit, and its field-uniform S-unit/Thue--Mahler estimate was not established. This replacement records the gaps and retains only the unconditional dynamical, integrality, and bounded-norm reductions",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "1308.4108v1",
+   "arxiv_id": "1308.4108",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Limits of Boolean Functions on F_p^n",
+   "category": "math.CO",
+   "posted": "2013-08-19",
+   "source": "latex",
+   "chars": 44164,
+   "text_sha256": "7976f8fb03e64de448872aff80a9a34ad5c78775e52ad47279ed74042ff1a7cd",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-08-20",
+   "discoverable": "text",
+   "gold": "The paper is withdrawn due to a gap in the proof of Lemma 4.2, which affects the main theorem",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2512.20882v2",
+   "arxiv_id": "2512.20882",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Erdős-Wintner theorem for linear recurrent bases",
+   "category": "math.NT",
+   "posted": "2025-12-24",
+   "source": "latex",
+   "chars": 124586,
+   "text_sha256": "79e92dddd995baf544680efd2a23c8687ad7818746b0ef789fd77d172d29fc1d",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-08-11",
+   "discoverable": "text",
+   "gold": "Withdrawn due to gaps in the proof of the main theorem, specifically in the block decomposition and auxiliary estimates in Section 3",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.07131v1",
+   "arxiv_id": "2601.07131",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "The Limits of Complexity: Why Feature Engineering Beats Deep Learning in Investor Flow Prediction",
+   "category": "q-fin.CP",
+   "posted": "2026-01-12",
+   "source": "latex",
+   "chars": 42894,
+   "text_sha256": "46a86a0e83ba01fad906b004bf38f1b1d5456f3caa5308b27d688a0038a1fe0e",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-07",
+   "discoverable": "external",
+   "gold": "This paper has been withdrawn by the author due to an implementation error that resulted in look-ahead bias (data leakage)",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2410.04630v1",
+   "arxiv_id": "2410.04630",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Unitary Closed Timelike Curves can Solve all of NP",
+   "category": "quant-ph",
+   "posted": "2024-10-06",
+   "source": "latex",
+   "chars": 90904,
+   "text_sha256": "86a857088c826180733cf5cc56bb1671b7c7ed71254d37a5a17986ff6f347979",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-10-29",
+   "discoverable": "text",
+   "gold": "The paper is withdrawn due to an error in the definition of the computational model, which invalidates the proof of the main result. The model imposes consistency only for identity local operations but does not impose the stronger consistency requirement under arbitrary local operations, which is needed for valid process matrices",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2605.00309v1",
+   "arxiv_id": "2605.00309",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "The GIT Boundary of Quintic Threefolds",
+   "category": "math.AG",
+   "posted": "2026-05-01",
+   "source": "latex",
+   "chars": 152172,
+   "text_sha256": "a30ff95d8ab57c7b6671e1457edb1db328524ea5ed7a3edb1074f7fcbc34c4c8",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-05",
+   "discoverable": "text",
+   "gold": "Version 2 corrects the component count in Version 1. The previous claim of 38 irreducible boundary components was incorrect because S-equivalence among the 38 maximal strictly semistable supports was not taken into account. That claim is withdrawn. The corrected classification consists of 21 irreducible components",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2601.20845v1",
+   "arxiv_id": "2601.20845",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "PatchFormer: A Patch-Based Time Series Foundation Model with Hierarchical Masked Reconstruction and Cross-Domain Transfer Learning for Zero-Shot Multi-Horizon Forecasting",
+   "category": "cs.LG",
+   "posted": "2026-01-28",
+   "source": "latex",
+   "chars": 21361,
+   "text_sha256": "23c3c3337bb91919591e754131f6cbc5bf567bd026e2aa46fbe500ab411cb2d5",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-06",
+   "discoverable": "external",
+   "gold": "Withdrawn by mutual agreement of all authors due to critical data leakage identified in the temporal train-test splitting and masked reconstruction pipeline, which invalidates the reported zero-shot forecasting benchmarks and core conclusions",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2403.12304v2",
+   "arxiv_id": "2403.12304",
+   "version": 2,
+   "role": "withdrawn",
+   "title": "Conformally symplectic structures and the Lefschetz condition",
+   "category": "math.SG",
+   "posted": "2024-03-18",
+   "source": "latex",
+   "chars": 14293,
+   "text_sha256": "acf744b8e5990af7561b9238dd437a929fac9731307559c569245f869c616d4e",
+   "withdrawal_version": 3,
+   "withdrawn": "2026-10-15",
+   "discoverable": "text",
+   "gold": "Withdrawn because implication (1) => (2) in Lemma 2 is false: hard Lefschetz in degree 1 does not imply that J preserves harmonic 1-forms. Consequently, the proofs of Theorem 1 and its dependent corollaries are invalid. This withdrawal does not assert that Theorem 1 itself is false",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2505.08105v1",
+   "arxiv_id": "2505.08105",
+   "version": 1,
+   "role": "withdrawn",
+   "title": "Pseudo-Anosov action on the $SU(2)$-character variety of $S_2$",
+   "category": "math.GT",
+   "posted": "2025-05-12",
+   "source": "latex",
+   "chars": 20620,
+   "text_sha256": "64d4f5c15fabcf9cc89fcd241fb047707852298fac10a1ab26fa843fddd3bfb4",
+   "withdrawal_version": 2,
+   "withdrawn": "2026-09-28",
+   "discoverable": "text",
+   "gold": "This manuscript has been withdrawn due to a mistake in Theorem 3.1",
+   "matched_to": null,
+   "leak_flags": []
+  },
+  {
+   "key": "2511.14673v2",
+   "arxiv_id": "2511.14673",
+   "version": 2,
+   "role": "control",
+   "title": "Closing in on $α$-attractors",
+   "category": "astro-ph.CO",
+   "posted": "2025-11-18",
+   "source": "latex",
+   "chars": 98876,
+   "text_sha256": "c68324cfa65545b8ed794ff63fa39a838f5ff79d1f591a7728cd4f64591caa72",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2511.05345v3",
+   "leak_flags": []
+  },
+  {
+   "key": "2409.06642v1",
+   "arxiv_id": "2409.06642",
+   "version": 1,
+   "role": "control",
+   "title": "Multiplicative Inequalities In Cluster Algebras Of Finite Type",
+   "category": "math.CO",
+   "posted": "2024-09-10",
+   "source": "latex",
+   "chars": 96271,
+   "text_sha256": "6da9b07b610c63abfd773dd82a77fe793610e4acd16d07608067f4daad27581e",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2409.01981v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2604.13014v1",
+   "arxiv_id": "2604.13014",
+   "version": 1,
+   "role": "control",
+   "title": "Finite element approximation of an anisotropic porous medium equation with fractional pressure",
+   "category": "math.NA",
+   "posted": "2026-04-14",
+   "source": "latex",
+   "chars": 153931,
+   "text_sha256": "dded831df3b8039db462e07661dad7fba46c03943eee258185a02affc2068adb",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2604.08911v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2506.06259v1",
+   "arxiv_id": "2506.06259",
+   "version": 1,
+   "role": "control",
+   "title": "An Optimized Franz-Parisi Criterion and its Equivalence with SQ Lower Bounds",
+   "category": "math.ST",
+   "posted": "2025-06-06",
+   "source": "latex",
+   "chars": 130825,
+   "text_sha256": "fbf7dc8db6a84201458d0e9ea36acae02c3c6e3ac6d1a8153b40fcaa3404c2f4",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2506.18078v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.12247v3",
+   "arxiv_id": "2512.12247",
+   "version": 3,
+   "role": "control",
+   "title": "Skew-symmetrizable cluster algebras from surfaces and symmetric quivers",
+   "category": "math.RT",
+   "posted": "2025-12-13",
+   "source": "latex",
+   "chars": 126405,
+   "text_sha256": "06177e8863f7c6da2bcc9b4b21fd4870b159efda5b4d9f9bda348b0981512c25",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.13406v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2603.10139v2",
+   "arxiv_id": "2603.10139",
+   "version": 2,
+   "role": "control",
+   "title": "The Generation-Recognition Asymmetry: Six Dimensions of a Fundamental Divide in Formal Language Theory",
+   "category": "cs.CL",
+   "posted": "2026-03-10",
+   "source": "latex",
+   "chars": 155707,
+   "text_sha256": "b965012ab4c50580022be3ddc283060090ae112726a426c5c0d3045c15b60024",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2603.13891v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2603.23182v1",
+   "arxiv_id": "2603.23182",
+   "version": 1,
+   "role": "control",
+   "title": "Path Planning and Reinforcement Learning-Driven Control of On-Orbit Free-Flying Multi-Arm Robots",
+   "category": "cs.RO",
+   "posted": "2026-03-24",
+   "source": "latex",
+   "chars": 89235,
+   "text_sha256": "0801cb2f9642f052661a4aec56980c393cc5d9cab8a3f66b00da238157ac3c44",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2603.02104v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2607.06714v2",
+   "arxiv_id": "2607.06714",
+   "version": 2,
+   "role": "control",
+   "title": "Expectation-Maximization algorithm to estimate the forcing parameter of a nonlinear McKean-Vlasov diffusion",
+   "category": "math.ST",
+   "posted": "2026-07-07",
+   "source": "latex",
+   "chars": 85600,
+   "text_sha256": "6556383ffec5ed125136d6c5de94c453f15d85315d26b849adb2de5e9be2fb96",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2607.19839v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.13213v2",
+   "arxiv_id": "2601.13213",
+   "version": 2,
+   "role": "control",
+   "title": "Conflict Detection in AI-RAN: Efficient Interaction Learning and Autonomous Graph Reconstruction",
+   "category": "cs.NI",
+   "posted": "2026-01-19",
+   "source": "latex",
+   "chars": 41880,
+   "text_sha256": "2842084840697a4b8a486edd37a12b15b05a7598c08f9febbdbd4ff4ebc7469e",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.09641v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.13827v1",
+   "arxiv_id": "2605.13827",
+   "version": 1,
+   "role": "control",
+   "title": "Finite-time blow-up in an elementary model of the 3D Navier-Stokes equations",
+   "category": "math.AP",
+   "posted": "2026-05-13",
+   "source": "latex",
+   "chars": 58793,
+   "text_sha256": "d0de03144c7b6f1e5efc5d12080040d435631328aa160353c78b77519595ba40",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.27054v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2003.06702v1",
+   "arxiv_id": "2003.06702",
+   "version": 1,
+   "role": "control",
+   "title": "Uniform ellipticity and $p$-$q$ growth",
+   "category": "math.AP",
+   "posted": "2020-03-14",
+   "source": "latex",
+   "chars": 31721,
+   "text_sha256": "dfb100b8f18d3c2b6b29f60bf269547348310f3649ee44a5ad7611815badbf7f",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2003.01694v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2606.13904v1",
+   "arxiv_id": "2606.13904",
+   "version": 1,
+   "role": "control",
+   "title": "SANA: What Matters for QA Agents over Massive Data Lakes?",
+   "category": "cs.CL",
+   "posted": "2026-06-11",
+   "source": "latex",
+   "chars": 55193,
+   "text_sha256": "edce416e331ed55c3ebcb85cedd025af466e4ee6958a4e310dbc2e66d3d7ac76",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2606.27571v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.09696v2",
+   "arxiv_id": "2601.09696",
+   "version": 2,
+   "role": "control",
+   "title": "Empathy Applicability Modeling for General Health Queries",
+   "category": "cs.CL",
+   "posted": "2026-01-14",
+   "source": "latex",
+   "chars": 113635,
+   "text_sha256": "b5c24038d87eb403d4abe40469562fbe0ce9c1e73021b9d659e81958c81ba7d6",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.18350v4",
+   "leak_flags": []
+  },
+  {
+   "key": "2603.20669v1",
+   "arxiv_id": "2603.20669",
+   "version": 1,
+   "role": "control",
+   "title": "ToFormer: Towards Large-scale Scenario Depth Completion for Lightweight ToF Camera",
+   "category": "cs.RO",
+   "posted": "2026-03-21",
+   "source": "latex",
+   "chars": 84306,
+   "text_sha256": "444ffaecb5a5be49fa4c5b1c5b828ce9f431ea564721654f583b836b2d2bb2a2",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2603.24155v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.14721v2",
+   "arxiv_id": "2512.14721",
+   "version": 2,
+   "role": "control",
+   "title": "Automatic Extraction of Rules for Generating Synthetic Patient Data From Real-World Population Data Using Glioblastoma as an Example",
+   "category": "cs.LG",
+   "posted": "2025-12-09",
+   "source": "latex",
+   "chars": 34928,
+   "text_sha256": "d66a0e2ed64ce2645e4c1cbc2ec64beec4a71995c8cecbde237224db5dc556b8",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.22740v3",
+   "leak_flags": []
+  },
+  {
+   "key": "2602.04675v2",
+   "arxiv_id": "2602.04675",
+   "version": 2,
+   "role": "control",
+   "title": "Generalized Schrödinger Bridge on Graphs",
+   "category": "cs.LG",
+   "posted": "2026-02-04",
+   "source": "latex",
+   "chars": 118126,
+   "text_sha256": "6486b9c6dd6189aa7887cdfdb070b2a7d1a1f552c1ab306cad1107b707fb1264",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2602.22673v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2511.06155v1",
+   "arxiv_id": "2511.06155",
+   "version": 1,
+   "role": "control",
+   "title": "Lifting $I$-functions from the Grassmannians to their cotangent bundles",
+   "category": "math.AG",
+   "posted": "2025-11-08",
+   "source": "latex",
+   "chars": 128292,
+   "text_sha256": "3d4ab4ba32a8e358292ed7edc2ef785f495c4aab5ddf623b296610958cb0b66c",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2511.03532v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.06054v1",
+   "arxiv_id": "2605.06054",
+   "version": 1,
+   "role": "control",
+   "title": "Visual Fingerprints for LLM Generation Comparison",
+   "category": "cs.AI",
+   "posted": "2026-05-07",
+   "source": "latex",
+   "chars": 25592,
+   "text_sha256": "b236b5ee018404fbf36e22760824f5f3610b0fa502296df0cb41958320494d14",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.27911v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2604.02758v1",
+   "arxiv_id": "2604.02758",
+   "version": 1,
+   "role": "control",
+   "title": "Optimal Pricing with Unreliable Signals",
+   "category": "cs.GT",
+   "posted": "2026-04-03",
+   "source": "latex",
+   "chars": 87302,
+   "text_sha256": "cb78a1b7d8c1d60422bedaffda98b1660c3f3312cef22dc0ddba32a57dac2214",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2604.03947v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2410.16051v1",
+   "arxiv_id": "2410.16051",
+   "version": 1,
+   "role": "control",
+   "title": "On the two-colour Rado number for $\\sum_{i=1}^m a_ix_i=c$",
+   "category": "math.CO",
+   "posted": "2024-10-21",
+   "source": "latex",
+   "chars": 43834,
+   "text_sha256": "43051fcc51cb9dfe68f3a1c3cb227b769edaf82067097edad1b85fa5f9c83b6a",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2410.13840v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2404.06534v2",
+   "arxiv_id": "2404.06534",
+   "version": 2,
+   "role": "control",
+   "title": "A circuit-generated quantum subspace algorithm for the variational quantum eigensolver",
+   "category": "quant-ph",
+   "posted": "2024-04-09",
+   "source": "latex",
+   "chars": 31694,
+   "text_sha256": "9f8587b5ac32920c0580e053f23a0b5f934c60056454fa5ed9934094ab630d24",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2404.17409v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2510.11615v1",
+   "arxiv_id": "2510.11615",
+   "version": 1,
+   "role": "control",
+   "title": "LLM-Oriented Token-Adaptive Knowledge Distillation",
+   "category": "cs.CL",
+   "posted": "2025-10-13",
+   "source": "latex",
+   "chars": 55343,
+   "text_sha256": "61aed172da9d2554b8e1e6249763f484d59119e4c22f588cd36095e51edc8c11",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2510.24789v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2607.13276v2",
+   "arxiv_id": "2607.13276",
+   "version": 2,
+   "role": "control",
+   "title": "Aurora DSQL: Scalable, Multi-Region OLTP",
+   "category": "cs.DB",
+   "posted": "2026-07-14",
+   "source": "latex",
+   "chars": 70835,
+   "text_sha256": "2031e78b16d7aca2d03ae63dc4aa17be8d5a75eb11e577358d8d56f3596bc09d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2607.00728v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.03130v1",
+   "arxiv_id": "2605.03130",
+   "version": 1,
+   "role": "control",
+   "title": "Image transformations, Markov operators, and sample median",
+   "category": "math.FA",
+   "posted": "2026-05-04",
+   "source": "latex",
+   "chars": 106002,
+   "text_sha256": "cc17dcbf2fd332f53ccf783e9fbf5659919e0636efe523f98b9893c724e71a6d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.25630v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2606.22369v1",
+   "arxiv_id": "2606.22369",
+   "version": 1,
+   "role": "control",
+   "title": "Kiwano: A Cutting-Edge Open-Source Toolkit for Speaker Verification",
+   "category": "cs.SD",
+   "posted": "2026-06-21",
+   "source": "latex",
+   "chars": 47440,
+   "text_sha256": "77b7a0aee391f876bedbbdf95ee21f18264d2339d4a150833ed2b33b2e0a3538",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2606.17028v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.09051v1",
+   "arxiv_id": "2512.09051",
+   "version": 1,
+   "role": "control",
+   "title": "Orbital magnetization from parallel transport of Bloch states",
+   "category": "cond-mat.mes-hall",
+   "posted": "2025-12-09",
+   "source": "latex",
+   "chars": 38791,
+   "text_sha256": "60b681bafa13a281c709d459040e5dd73ba68cf01bbabdcefdb887e09eca247c",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.16025v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2606.00092v1",
+   "arxiv_id": "2606.00092",
+   "version": 1,
+   "role": "control",
+   "title": "Aligning Cellular Sheaves with Classifier Attention for Interpretable Weakly-Supervised Pathology Localization",
+   "category": "cs.CV",
+   "posted": "2026-05-24",
+   "source": "latex",
+   "chars": 23681,
+   "text_sha256": "c0d7305b8fe5ed5e14d8ad0e149b779a1a881a33845300c1e037e2a716665f8a",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.06021v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.00718v3",
+   "arxiv_id": "2605.00718",
+   "version": 3,
+   "role": "control",
+   "title": "Learning Coarse-to-Fine Osteoarthritis Representations under Noisy Hierarchical Labels",
+   "category": "cs.CV",
+   "posted": "2026-05-01",
+   "source": "latex",
+   "chars": 27449,
+   "text_sha256": "94537ae0f46bd91f7672898b9b7687266838e29de0e3770446df49c8ab6af061",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.25530v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2407.10295v1",
+   "arxiv_id": "2407.10295",
+   "version": 1,
+   "role": "control",
+   "title": "Negative holomorphic bisectional curvature of some bounded domains",
+   "category": "math.CV",
+   "posted": "2024-07-14",
+   "source": "latex",
+   "chars": 49407,
+   "text_sha256": "ced305d1d03cff3055c58e9ee71a10b0a1023b7c5b630dbf12da8095e67ac492",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2407.09306v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.10842v1",
+   "arxiv_id": "2601.10842",
+   "version": 1,
+   "role": "control",
+   "title": "Linear strands of powers of certain binomial edge ideals",
+   "category": "math.AC",
+   "posted": "2026-01-15",
+   "source": "latex",
+   "chars": 35505,
+   "text_sha256": "32d234e4e7e6e7e0fb88d843c57393afdaf70928dec2a31f1e6d74179d0e4193",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.05497v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.20563v1",
+   "arxiv_id": "2605.20563",
+   "version": 1,
+   "role": "control",
+   "title": "Multi-agent Collaboration with State Management",
+   "category": "cs.MA",
+   "posted": "2026-05-19",
+   "source": "latex",
+   "chars": 68773,
+   "text_sha256": "d3b788bc75220fa0eb6e5f9a2b565044fd01926e97d86ee75a513994e0a1bc5d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.05066v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.12536v2",
+   "arxiv_id": "2601.12536",
+   "version": 2,
+   "role": "control",
+   "title": "Examples and counterexamples of injective types",
+   "category": "math.LO",
+   "posted": "2026-01-18",
+   "source": "latex",
+   "chars": 125833,
+   "text_sha256": "14a80e055284bd0faf200a4f6b0a9b7f968f4da90b1533466a77c46948a232a6",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.01855v7",
+   "leak_flags": []
+  },
+  {
+   "key": "2606.25795v1",
+   "arxiv_id": "2606.25795",
+   "version": 1,
+   "role": "control",
+   "title": "Benchmarking Dark Matter Search using a Parity-Check Protocol with Machine-Learning Optimized Pulses",
+   "category": "quant-ph",
+   "posted": "2026-06-24",
+   "source": "latex",
+   "chars": 82640,
+   "text_sha256": "11b866f9a2e9934ef09e5f3a7a5f498998a3833207c75e393fbe6a7f4b2c2cea",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2606.16674v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.16543v1",
+   "arxiv_id": "2605.16543",
+   "version": 1,
+   "role": "control",
+   "title": "Demonstration of transport in an ion trap design for two-dimensional lattices",
+   "category": "quant-ph",
+   "posted": "2026-05-15",
+   "source": "latex",
+   "chars": 55203,
+   "text_sha256": "65516e312acc3b484298abf7796768a97ba7009f19b2ead60a9d5e0fc043723d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.01953v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.26019v1",
+   "arxiv_id": "2605.26019",
+   "version": 1,
+   "role": "control",
+   "title": "Retrieval-Augmented Detection of Potentially Abusive Clauses in Chilean Terms of Service",
+   "category": "cs.LG",
+   "posted": "2026-05-25",
+   "source": "latex",
+   "chars": 120801,
+   "text_sha256": "9e152b10bee2a08036427b9a70d28e12ff16f0e0205067f33846478fb797b88e",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.01192v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.13220v1",
+   "arxiv_id": "2512.13220",
+   "version": 1,
+   "role": "control",
+   "title": "Experimental design of a millifluidic flow-focusing method for biomimetic nanocellulose and hemicellulose-based biopolymer fibres",
+   "category": "physics.class-ph",
+   "posted": "2025-12-15",
+   "source": "pdf",
+   "chars": 25349,
+   "text_sha256": "7476ea9a4dc62afc5760de0ca3447a96fd86cccd1d755a7b41789177787b5365",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.02960v5",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.22821v1",
+   "arxiv_id": "2512.22821",
+   "version": 1,
+   "role": "control",
+   "title": "Blowup rate for rotational NLS with a repulsive potential",
+   "category": "math.AP",
+   "posted": "2025-12-28",
+   "source": "latex",
+   "chars": 92133,
+   "text_sha256": "b6d291252f8c64fb42a5589ebd015140617d0539076a277d2b931caa60a128cb",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.11877v4",
+   "leak_flags": []
+  },
+  {
+   "key": "2502.11060v1",
+   "arxiv_id": "2502.11060",
+   "version": 1,
+   "role": "control",
+   "title": "Estimates for Betti numbers and relative Hermite-Minkowski theorem for perverse sheaves",
+   "category": "math.AG",
+   "posted": "2025-02-16",
+   "source": "latex",
+   "chars": 152824,
+   "text_sha256": "1ba64007b69a7ae9ad7c43e0051eee071ee71a5fbbae90febf9fee62fbeff2fd",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2502.20569v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2606.26880v1",
+   "arxiv_id": "2606.26880",
+   "version": 1,
+   "role": "control",
+   "title": "Heterogeneous Neural Predictivity from Language Models During Naturalistic Comprehension",
+   "category": "cs.CL",
+   "posted": "2026-06-25",
+   "source": "latex",
+   "chars": 85886,
+   "text_sha256": "893695c6baae49d410f54b679b4153228487c9b1d3b6d2f4484df38e272797f4",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2606.09191v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.07829v1",
+   "arxiv_id": "2605.07829",
+   "version": 1,
+   "role": "control",
+   "title": "Parametric ROC Analysis and Optimal Cutoff Selection under Scale Mixtures of Skew-Normal Distributions: A Decision-Theoretic Framework with Asymptotic Inference",
+   "category": "stat.ME",
+   "posted": "2026-05-08",
+   "source": "latex",
+   "chars": 126633,
+   "text_sha256": "a44ae49880c6fb0322387c1ed0fc3ef2d093370861e1487909cfa729f3329080",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.23419v3",
+   "leak_flags": []
+  },
+  {
+   "key": "2607.09255v2",
+   "arxiv_id": "2607.09255",
+   "version": 2,
+   "role": "control",
+   "title": "Accelerator neutrinos as a probe of in-medium hyperon potentials",
+   "category": "nucl-th",
+   "posted": "2026-07-10",
+   "source": "latex",
+   "chars": 18560,
+   "text_sha256": "1cac5615ad963771dfc58a77275fccd4a313e25bac75273a60c949710c89eb09",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2607.18211v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.14521v1",
+   "arxiv_id": "2601.14521",
+   "version": 1,
+   "role": "control",
+   "title": "Generalized relations between arithmetic functions",
+   "category": "math.NT",
+   "posted": "2026-01-20",
+   "source": "latex",
+   "chars": 16181,
+   "text_sha256": "88fe274259f3348da9a1b8c1f92be36b18aae846810ae909d8193f9b02ebc3be",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.11799v2",
+   "leak_flags": []
+  },
+  {
+   "key": "1308.2666v5",
+   "arxiv_id": "1308.2666",
+   "version": 5,
+   "role": "control",
+   "title": "Combinatorially interpreting generalized Stirling numbers",
+   "category": "math.CO",
+   "posted": "2013-08-12",
+   "source": "latex",
+   "chars": 81641,
+   "text_sha256": "c907140db575c3aa2f6a715cb34d9c00a8331a5743c457425c38ba85708340fc",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "1308.4108v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2512.07106v1",
+   "arxiv_id": "2512.07106",
+   "version": 1,
+   "role": "control",
+   "title": "Dynamics of multiplicative groups over fields and Folner-Kloosterman sums",
+   "category": "math.DS",
+   "posted": "2025-12-08",
+   "source": "latex",
+   "chars": 180575,
+   "text_sha256": "63e0a69b2a918b3856bfbea12ad84b9dd528e907ceb57db9ae093a1f3020411d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2512.20882v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.16446v1",
+   "arxiv_id": "2601.16446",
+   "version": 1,
+   "role": "control",
+   "title": "Brownian ReLU(Br-ReLU): A New Activation Function for a Long-Short Term Memory (LSTM) Network",
+   "category": "cs.LG",
+   "posted": "2026-01-23",
+   "source": "latex",
+   "chars": 36194,
+   "text_sha256": "7645b2f519159a0ffedac96aa2be0ae7a0417e7817519167d4df2dc82c12a2ae",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.07131v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2410.12095v3",
+   "arxiv_id": "2410.12095",
+   "version": 3,
+   "role": "control",
+   "title": "Transient concurrence for copropagating entangled bosons and fermions",
+   "category": "quant-ph",
+   "posted": "2024-10-15",
+   "source": "latex",
+   "chars": 37268,
+   "text_sha256": "5049630737d59d703e729e9ada615aee592871b209de94c78fa68d884d215d8f",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2410.04630v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2605.19783v1",
+   "arxiv_id": "2605.19783",
+   "version": 1,
+   "role": "control",
+   "title": "Higher singularities for hypersurfaces",
+   "category": "math.AG",
+   "posted": "2026-05-19",
+   "source": "latex",
+   "chars": 66870,
+   "text_sha256": "62ed31099aca20c946e07f3e0524af8f325d7f4da81c2787872cd3d3bc68b731",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2605.00309v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2601.15239v1",
+   "arxiv_id": "2601.15239",
+   "version": 1,
+   "role": "control",
+   "title": "Multi-context principal component analysis",
+   "category": "stat.ML",
+   "posted": "2026-01-21",
+   "source": "latex",
+   "chars": 143393,
+   "text_sha256": "845fd600e8a40033ae8fd339f001e12e955e87e6353afecd1634eb4a6122078d",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2601.20845v1",
+   "leak_flags": []
+  },
+  {
+   "key": "2403.03519v1",
+   "arxiv_id": "2403.03519",
+   "version": 1,
+   "role": "control",
+   "title": "KIAS Lectures on Symplectic Aspects of Degenerations",
+   "category": "math.SG",
+   "posted": "2024-03-06",
+   "source": "latex",
+   "chars": 87234,
+   "text_sha256": "8e6bbeaf5a9da9b6315141e3436cc68a69336b340424cd2af12aa64cba6af70e",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2403.12304v2",
+   "leak_flags": []
+  },
+  {
+   "key": "2505.07284v2",
+   "arxiv_id": "2505.07284",
+   "version": 2,
+   "role": "control",
+   "title": "On Nielsen equivalence classes of two-elements generators of mapping class groups",
+   "category": "math.GT",
+   "posted": "2025-05-12",
+   "source": "latex",
+   "chars": 31331,
+   "text_sha256": "36517059db618c929edbca8789e69cbe9d5edbbc2195049ca2d03fae3a2d2829",
+   "withdrawal_version": null,
+   "withdrawn": null,
+   "discoverable": null,
+   "gold": null,
+   "matched_to": "2505.08105v1",
+   "leak_flags": []
+  }
+ ],
+ "exclusions": [
+  {
+   "id": "0902.0680",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "1311.1929",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "1401.2694",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1408.4561",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1508.01052",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "1604.05290",
+   "reason": "manual: says only that there was an error in the proof of a main theorem"
+  },
+  {
+   "id": "1608.06029",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1702.02882",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1702.02891",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1702.04909",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "1704.08680",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1711.01765",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1802.00755",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "1805.09108",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "1901.06530",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1905.07887",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "1905.12913",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "1911.07232",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "1912.08643",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2004.02773",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2005.06132",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2006.08444",
+   "reason": "manual: says only that errors were identified in several sections"
+  },
+  {
+   "id": "2101.06854",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2107.07386",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2107.07387",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2109.03617",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2109.07467",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2110.14801",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2111.09040",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2203.06695",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2209.09377",
+   "reason": "manual: says only that gaps were found in the proofs"
+  },
+  {
+   "id": "2302.12177",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2303.08063",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2305.05398",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2305.05411",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2305.05415",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2305.05676",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2306.14995",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2308.03827",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2309.13476",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2311.02629",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2311.11318",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2311.13263",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2312.14162",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2312.15575",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2401.17970",
+   "reason": "manual: says only that there are errors and inconsistencies in the presentation"
+  },
+  {
+   "id": "2402.18121",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2403.15191",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2404.02829",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2405.00914",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2405.19252",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2405.19278",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2406.02233",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2407.10526",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2407.11101",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2407.18454",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2408.07988",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2409.12743",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2410.03532",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2410.11858",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2410.17924",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2411.00555",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2411.16381",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2412.08484",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2412.08904",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2501.10675",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2502.05644",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2502.08250",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2502.16525",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2503.12001",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2503.12755",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2503.13558",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2503.14555",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2503.14900",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2503.17668",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2503.23655",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2504.00504",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2504.04559",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2504.04727",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2504.06532",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2504.09061",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2505.04054",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2505.08088",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2505.09738",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2505.13520",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2505.15417",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2505.19912",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2505.23202",
+   "reason": "manual: wrong version: the error was in v2 and v3 had already withdrawn the claim"
+  },
+  {
+   "id": "2505.24030",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2506.06738",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2506.09103",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2506.13554",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2506.17913",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2506.19715",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2506.20756",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2506.22497",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2508.01587",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2508.03077",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2508.03202",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2508.03765",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2508.08614",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2508.19099",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2509.01529",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2509.04036",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2509.04037",
+   "reason": "manual: says only that there are errors in the formal analysis"
+  },
+  {
+   "id": "2509.09024",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2509.09195",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2509.09297",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2509.09511",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2509.14357",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2509.17918",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2509.20377",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2509.22420",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2509.22536",
+   "reason": "manual: says only that there was a bug in a data pipeline"
+  },
+  {
+   "id": "2509.23373",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2509.24123",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2509.24152",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2509.24425",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2509.25276",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2510.01647",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2510.03778",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2510.04223",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2510.08359",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2510.08577",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2510.12787",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2510.19475",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2510.21874",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2510.22863",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2510.24735",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2510.26642",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2510.27149",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.01738",
+   "reason": "manual: says only that a proof of an application contained errors"
+  },
+  {
+   "id": "2511.03836",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2511.04086",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2511.05515",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.07560",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2511.07675",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.07688",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2511.07837",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2511.07854",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2511.07866",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.11580",
+   "reason": "manual: names the results affected but not the error"
+  },
+  {
+   "id": "2511.11745",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2511.12553",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2511.13875",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.14661",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.15755",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2511.16120",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2511.18790",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2511.19312",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2512.00319",
+   "reason": "manual: says only that there are errors in references, terminology and reporting"
+  },
+  {
+   "id": "2512.01360",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2512.03517",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2512.10270",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2512.14701",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2512.14764",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2512.15141",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2512.17327",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2512.17951",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2512.20245",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2512.23129",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.00900",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2601.00931",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.01278",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.01519",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2601.01632",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.02629",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2601.04431",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2601.05290",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2601.06751",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.09118",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.09129",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2601.09226",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2601.09238",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2601.11008",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2601.14286",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2601.14862",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2601.16161",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2601.17729",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2602.03919",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2602.07018",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2602.07445",
+   "reason": "manual: says only that errors exist and that key estimates do not hold"
+  },
+  {
+   "id": "2602.14735",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2602.15355",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2602.17845",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2602.18047",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2602.18109",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2602.19587",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2602.20531",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2602.23772",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.00652",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2603.02263",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2603.03228",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.04604",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.06194",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.06641",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2603.06822",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.07379",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2603.07473",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2603.07819",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.08036",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.10073",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.10400",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2603.12183",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2603.14005",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2603.15344",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2603.15694",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.19012",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2603.19728",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2603.22569",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2603.23533",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2603.29132",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2604.03634",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2604.05720",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2604.06558",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2604.08853",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2604.08856",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2604.10005",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2604.12128",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2604.12174",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2604.14071",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2604.14222",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.15489",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2604.19904",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.20121",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.20717",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.21588",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.22627",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.23784",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2604.24289",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2604.24798",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2604.26271",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.00455",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.02156",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2605.03195",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2605.03795",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2605.04998",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.05236",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2605.05409",
+   "reason": "manual: says only that there are methodological errors in the experimental design"
+  },
+  {
+   "id": "2605.06419",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.07267",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2605.09492",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.11017",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.11419",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2605.12096",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2605.12151",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.14386",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2605.15896",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.17117",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.17604",
+   "reason": "manual: found by reanalysing data, which the text cannot show"
+  },
+  {
+   "id": "2605.18007",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2605.20279",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.20281",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2605.21437",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.22143",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2605.22163",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.23229",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.24297",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2605.24856",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2605.25848",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2605.27099",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2605.28423",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2605.28747",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2605.30994",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.00364",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2606.00930",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2606.01101",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.01160",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.01778",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.02086",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.02125",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.02212",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.02647",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2606.03026",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2606.03141",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.05017",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.05183",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.05615",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.05633",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2606.06229",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2606.08223",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2606.08435",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.08516",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.09085",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.10323",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.11061",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.11375",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.11678",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.11949",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.12966",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.14053",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.15971",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.16097",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2606.16562",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2606.16665",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.17051",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.19544",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2606.20274",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2606.22886",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.24259",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2606.24811",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.25078",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.26421",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2606.27728",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2606.29733",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.30566",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2606.31708",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.31712",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2606.31754",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2607.00337",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.00639",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.00662",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2607.00677",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.01311",
+   "reason": "manual: says only that there are theoretical errors in several core arguments"
+  },
+  {
+   "id": "2607.02795",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.04338",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2607.04837",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.09074",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.09080",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.09842",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.09922",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2607.10255",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2607.10717",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.11298",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.12075",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2607.12896",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2607.14461",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2607.14810",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2607.15243",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.15688",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.15979",
+   "reason": "manual: flaw is in a lemma of another paper that this one relies on"
+  },
+  {
+   "id": "2607.17513",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.17793",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.18295",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2607.19338",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2607.19395",
+   "reason": "manual: values were computed on incomplete task sets, which the text cannot show"
+  },
+  {
+   "id": "2607.20049",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2607.21018",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2607.21091",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2607.22567",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.23094",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2607.23453",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2607.23838",
+   "reason": "manual: mostly results that changed under a new evaluation, which the text cannot show"
+  },
+  {
+   "id": "2607.24548",
+   "reason": "manual: flaw is in a lemma of another paper that this one relies on"
+  },
+  {
+   "id": "2607.25461",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2607.25589",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.26159",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2607.26517",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.27739",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.28546",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2607.28687",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.00520",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.00858",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2608.01141",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.01269",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.01629",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.01805",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.02617",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.02687",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.02738",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.03502",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.03863",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.04527",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.04765",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.05353",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2608.05648",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2608.05663",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2608.05776",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2608.05803",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2608.05969",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.06112",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.06825",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.06924",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.07590",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.07680",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.08724",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.10725",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.11040",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.12408",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2608.13074",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.14972",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.15166",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.15550",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.16010",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.16150",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.17417",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.18722",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2608.20065",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2608.20292",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.20406",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.21129",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.21307",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.21377",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.21388",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.21999",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.22199",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.22400",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2608.22639",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.23212",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.24067",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.24098",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.24516",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.24702",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2608.25326",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2608.25422",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.26648",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2608.28773",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.29403",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.29512",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2608.29850",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2608.30101",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.00273",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.02781",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2609.04531",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.04865",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.05477",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2609.06265",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2609.06914",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.08288",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2609.08987",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.10457",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.10797",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2609.11106",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2609.11231",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.13474",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.14159",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2609.14835",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.18895",
+   "reason": "manual: the feature was shown to be an observational artifact by outside analysis"
+  },
+  {
+   "id": "2609.20600",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.22579",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.26117",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.26901",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2609.27916",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2609.29751",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2609.32356",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.33761",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2609.34368",
+   "reason": "partial_correction: corrects a claim, not a withdrawal"
+  },
+  {
+   "id": "2609.34768",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.35881",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.35882",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.35883",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2609.37392",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2609.38777",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2609.39891",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.01799",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2610.07410",
+   "reason": "vague: states an error without saying what it is"
+  },
+  {
+   "id": "2610.08752",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2610.10459",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.11496",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.11748",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.11896",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.12210",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.16576",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.17680",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.19388",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.23137",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.28575",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2610.29219",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.29543",
+   "reason": "not_about_error: superseded"
+  },
+  {
+   "id": "2610.31302",
+   "reason": "not_about_error: authorship"
+  },
+  {
+   "id": "2610.31544",
+   "reason": "admin_action: arXiv admin action, not an author's reason"
+  },
+  {
+   "id": "2610.32447",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.32528",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.33258",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2610.34022",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2610.34055",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.36930",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2610.37670",
+   "reason": "not_about_error: duplicate"
+  },
+  {
+   "id": "2610.39562",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2611.02780",
+   "reason": "not_about_error: plans"
+  },
+  {
+   "id": "2611.03706",
+   "reason": "not_about_error: no stated error"
+  },
+  {
+   "id": "2611.06760",
+   "reason": "not_about_error: legal_or_policy"
+  },
+  {
+   "id": "2511.09764",
+   "reason": "unavailable: source returned 404"
+  },
+  {
+   "id": "2603.08033",
+   "reason": "text_reveals_error"
+  },
+  {
+   "id": "2610.00324",
+   "reason": "unavailable: source returned 404"
+  },
+  {
+   "id": "2511.16295",
+   "reason": "text_too_long"
+  }
+ ]
+}

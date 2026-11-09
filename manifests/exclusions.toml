@@ -1,0 +1,156 @@
+# Papers ruled out by hand after reading their withdrawal comments, BEFORE any model saw them.
+#
+# The rule-based filter in src/review_harness/filters.py keeps comments that look specific. These
+# passed it, but on reading cannot serve as an answer key. Reasons are public so that anyone can
+# disagree. Nothing may be added here after a model has been run on a sample: to change the list,
+# freeze a new manifest. Reviewed by Claude (the AI that wrote this harness), not by a domain expert,
+# and only the withdrawal comments were read.
+#
+# The filter is weakest on long comments, where boilerplate passes its word count. That is why the
+# list for the WithdrarXiv sample is long.
+
+# ---------------------------------------------------------------- recent-2026h2
+
+# The flaw is not in the version that would be reviewed.
+[[exclude]]
+id = "2505.23202"
+reason = "wrong version: the error was in v2 and v3 had already withdrawn the claim"
+
+# The flaw cannot be seen from this paper's text.
+[[exclude]]
+id = "2607.15979"
+reason = "flaw is in a lemma of another paper that this one relies on"
+
+[[exclude]]
+id = "2607.24548"
+reason = "flaw is in a lemma of another paper that this one relies on"
+
+[[exclude]]
+id = "2607.19395"
+reason = "values were computed on incomplete task sets, which the text cannot show"
+
+[[exclude]]
+id = "2609.18895"
+reason = "the feature was shown to be an observational artifact by outside analysis"
+
+[[exclude]]
+id = "2605.17604"
+reason = "found by reanalysing data, which the text cannot show"
+
+[[exclude]]
+id = "2607.23838"
+reason = "mostly results that changed under a new evaluation, which the text cannot show"
+
+# States that errors exist without saying what they are.
+[[exclude]]
+id = "2511.01738"
+reason = "says only that a proof of an application contained errors"
+
+[[exclude]]
+id = "2209.09377"
+reason = "says only that gaps were found in the proofs"
+
+[[exclude]]
+id = "1604.05290"
+reason = "says only that there was an error in the proof of a main theorem"
+
+[[exclude]]
+id = "2602.07445"
+reason = "says only that errors exist and that key estimates do not hold"
+
+[[exclude]]
+id = "2607.01311"
+reason = "says only that there are theoretical errors in several core arguments"
+
+[[exclude]]
+id = "2509.04037"
+reason = "says only that there are errors in the formal analysis"
+
+[[exclude]]
+id = "2605.05409"
+reason = "says only that there are methodological errors in the experimental design"
+
+[[exclude]]
+id = "2006.08444"
+reason = "says only that errors were identified in several sections"
+
+[[exclude]]
+id = "2512.00319"
+reason = "says only that there are errors in references, terminology and reporting"
+
+[[exclude]]
+id = "2511.11580"
+reason = "names the results affected but not the error"
+
+[[exclude]]
+id = "2401.17970"
+reason = "says only that there are errors and inconsistencies in the presentation"
+
+[[exclude]]
+id = "2509.22536"
+reason = "says only that there was a bug in a data pipeline"
+
+# ---------------------------------------------------- withdrarxiv-2023q4-2024q3
+
+# States that errors exist without saying what they are.
+[[exclude]]
+id = "1707.04483"
+reason = "says only that the main result is incorrect"
+
+[[exclude]]
+id = "2408.04957"
+reason = "says only that a significant error affects the conclusions"
+
+[[exclude]]
+id = "2102.07145"
+reason = "says only that a major error was found"
+
+[[exclude]]
+id = "2403.17444"
+reason = "says only that there are flaws in the algorithm"
+
+[[exclude]]
+id = "2312.15490"
+reason = "says only that there are errors in the experimental results"
+
+[[exclude]]
+id = "2407.20651"
+reason = "says only that reviewers found mistakes in the theorems"
+
+[[exclude]]
+id = "2312.01001"
+reason = "says only that an error significantly affects the results"
+
+[[exclude]]
+id = "2302.01990"
+reason = "says only that new experiments found some results incorrect"
+
+# Not an error in the paper's claims.
+[[exclude]]
+id = "2405.10329"
+reason = "the model needs updating, which is not a stated error"
+
+[[exclude]]
+id = "2405.11165"
+reason = "describes revised results, not an error"
+
+[[exclude]]
+id = "2403.17704"
+reason = "an insufficient description of data collection, not an error in a claim"
+
+# The flaw cannot be seen from the text.
+[[exclude]]
+id = "2111.05494"
+reason = "the error is in figure annotations, and figures are not shown to models"
+
+[[exclude]]
+id = "2202.10646"
+reason = "an instrument reading was affected during the experiment, which the text cannot show"
+
+[[exclude]]
+id = "2406.06117"
+reason = "the error is in simulated signal generation, which the text cannot show"
+
+[[exclude]]
+id = "2206.10706"
+reason = "a software glitch, which the text cannot show"

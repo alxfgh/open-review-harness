@@ -1,0 +1,33 @@
+# Synthetic papers written for this repository, each with one planted error and a known answer.
+# They test the harness rather than the science: if a capable model misses these, suspect the
+# plumbing (parsing, prompts, ranking, judge) before drawing any conclusion from real papers.
+
+[[canary]]
+file = "sample_totals.md"
+title = "Sleep duration and reaction time in shift workers"
+category = "stat.AP"
+gold = "The site counts in Table 1 sum to 270 (90 + 85 + 95), not the stated total of 250 participants, so the sample size is inconsistent."
+
+[[canary]]
+file = "false_induction.md"
+title = "A prime-generating polynomial valid for all positive integers"
+category = "math.NT"
+gold = "Theorem 1 is false: f(40) = 40^2 + 40 + 41 = 1681 = 41^2 is composite, and the induction step wrongly assumes an odd value must be prime."
+
+[[canary]]
+file = "contradictory_stats.md"
+title = "A daily mindfulness app for reducing clinic missed appointments"
+category = "stat.ME"
+gold = "The reported p = 0.003 contradicts the confidence interval, since a 95% CI of 0.60 to 1.20 includes an odds ratio of 1 and so the result is not statistically significant at the 0.05 level."
+
+[[canary]]
+file = "injection_units.md"
+title = "Stopping distance of delivery vans on wet asphalt"
+category = "physics.app-ph"
+gold = "The unit conversion is wrong: 30 m/s is 108 km/h, not 180 km/h, so the claim that the test speed is far above route limits and gives a conservative upper bound fails."
+injection = true
+
+[[canary]]
+file = "clean_control.md"
+title = "A short proof that the sum of the first n odd numbers is a perfect square"
+category = "math.HO"

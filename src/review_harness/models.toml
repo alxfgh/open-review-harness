@@ -1,0 +1,211 @@
+# Model registry. A paper only counts as unseen by a model if it was withdrawn after that model's
+# knowledge_cutoff, so these dates decide what the results mean. Read from provider documentation
+# on 2026-11-09; check `source` before relying on them.
+#
+# price_verified = false means the price was not on the provider's current pricing page. It only
+# affects cost estimates, never scores.
+
+[models."gpt-6-astra"]
+provider = "openai"
+knowledge_cutoff = "2026-04-30"
+input_per_mtok = 10.00
+cached_per_mtok = 1.00
+output_per_mtok = 50.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6-astra"
+
+[models."gpt-6.1-sol"]
+provider = "openai"
+knowledge_cutoff = "2026-04-30"
+input_per_mtok = 2.00
+cached_per_mtok = 0.10
+output_per_mtok = 10.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+
+[models."gpt-6.1-terra"]
+provider = "openai"
+knowledge_cutoff = "2026-06-01"
+input_per_mtok = 1.00
+cached_per_mtok = 0.05
+output_per_mtok = 5.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+
+[models."gpt-6-luna"]
+provider = "openai"
+knowledge_cutoff = "2026-05-18"
+input_per_mtok = 0.10
+cached_per_mtok = 0.01
+output_per_mtok = 0.50
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6-luna"
+
+[models."gpt-5-2025-08-07"]
+provider = "openai"
+knowledge_cutoff = "2024-09-30"
+input_per_mtok = 1.25
+output_per_mtok = 10.00
+effort = "medium"
+price_verified = false
+source = "https://developers.openai.com/api/docs/models/gpt-5"
+
+[models."gpt-4.1-2025-04-14"]
+provider = "openai"
+knowledge_cutoff = "2024-06-01"
+input_per_mtok = 2.00
+output_per_mtok = 8.00
+price_verified = false
+source = "https://developers.openai.com/api/docs/models/gpt-4.1"
+
+[models."gpt-4o-2024-08-06"]
+provider = "openai"
+knowledge_cutoff = "2023-10-01"
+input_per_mtok = 2.50
+output_per_mtok = 10.00
+price_verified = false
+source = "https://developers.openai.com/api/docs/models/gpt-4o"
+
+# Anthropic publishes these cutoffs by month, so the last day of the month is used.
+[models."claude-fable-5-1"]
+provider = "anthropic"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 10.00
+output_per_mtok = 50.00
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."claude-opus-5-5"]
+provider = "anthropic"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 4.00
+cached_per_mtok = 0.20
+output_per_mtok = 20.00
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."claude-sonnet-5-5"]
+provider = "anthropic"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 2.00
+cached_per_mtok = 0.20
+output_per_mtok = 10.00
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."claude-haiku-5-5"]
+provider = "anthropic"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 0.10
+output_per_mtok = 0.50
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+# No knowledge cutoff could be confirmed for these, so they can run but are never reported as unseen.
+[models."gemini-4-argon"]
+provider = "gemini"
+input_per_mtok = 2.00
+output_per_mtok = 10.00
+price_verified = true
+source = "https://aistudio.google.com/docs/models/gemini-4-argon"
+
+[models."gemini-3.8-flash"]
+provider = "gemini"
+input_per_mtok = 0.75
+output_per_mtok = 3.75
+price_verified = true
+source = "https://aistudio.google.com/docs/models/gemini-3.8-flash"
+
+# Subscription runs through signed-in CLIs (see cli_llm.py), to keep evaluation off the paid APIs.
+# Same model and cutoff as the API entry above, but inside that tool's runtime, so results are
+# reported separately from API runs. Prices are API list prices, used only for "API-equivalent" cost.
+[models."cc/claude-opus-5-5"]
+provider = "claude-code"
+cli_model = "claude-opus-5-5"
+billing = "subscription"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 4.00
+cached_per_mtok = 0.20
+output_per_mtok = 20.00
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."cc/claude-sonnet-5-5"]
+provider = "claude-code"
+cli_model = "claude-sonnet-5-5"
+billing = "subscription"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 2.00
+cached_per_mtok = 0.20
+output_per_mtok = 10.00
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."cc/claude-haiku-5-5"]
+provider = "claude-code"
+cli_model = "claude-haiku-5-5"
+billing = "subscription"
+knowledge_cutoff = "2026-06-30"
+input_per_mtok = 0.10
+output_per_mtok = 0.50
+effort = "medium"
+price_verified = true
+source = "https://platform.claude.com/docs/en/about-claude/models/overview"
+
+[models."codex/gpt-6.1-sol"]
+provider = "codex"
+cli_model = "gpt-6.1-sol"
+billing = "subscription"
+knowledge_cutoff = "2026-04-30"
+input_per_mtok = 2.00
+cached_per_mtok = 0.10
+output_per_mtok = 10.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+
+[models."codex/gpt-6.1-terra"]
+provider = "codex"
+cli_model = "gpt-6.1-terra"
+billing = "subscription"
+knowledge_cutoff = "2026-06-01"
+input_per_mtok = 1.00
+cached_per_mtok = 0.05
+output_per_mtok = 5.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+
+[models."codex/gpt-6-astra"]
+provider = "codex"
+cli_model = "gpt-6-astra"
+billing = "subscription"
+knowledge_cutoff = "2026-04-30"
+input_per_mtok = 10.00
+cached_per_mtok = 1.00
+output_per_mtok = 50.00
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6-astra"
+
+[models."codex/gpt-6-luna"]
+provider = "codex"
+cli_model = "gpt-6-luna"
+billing = "subscription"
+knowledge_cutoff = "2026-05-18"
+input_per_mtok = 0.10
+cached_per_mtok = 0.01
+output_per_mtok = 0.50
+effort = "medium"
+price_verified = true
+source = "https://developers.openai.com/api/docs/models/gpt-6-luna"

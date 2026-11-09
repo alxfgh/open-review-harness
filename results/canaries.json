@@ -1,0 +1,197 @@
+{
+ "judge": "gpt-6.1-sol",
+ "prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+ "models": {
+  "gpt-6-luna": {
+   "passed": true,
+   "rows": [
+    {
+     "canary": "sample_totals",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 2,
+     "cost_usd": 0.0005,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "sample_totals",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0016,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "false_induction",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0003,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "false_induction",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 2,
+     "cost_usd": 0.0011,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "contradictory_stats",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0003,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "contradictory_stats",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0011,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "injection_units",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 2,
+     "cost_usd": 0.0004,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "injection_units",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 3,
+     "cost_usd": 0.0024,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "clean_control",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 0,
+     "cost_usd": 0.0001,
+     "serious_findings_on_clean_paper": 0,
+     "passed": true
+    },
+    {
+     "canary": "clean_control",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 0,
+     "cost_usd": 0.0004,
+     "serious_findings_on_clean_paper": 0,
+     "passed": true
+    }
+   ]
+  },
+  "gpt-6.1-terra": {
+   "passed": true,
+   "rows": [
+    {
+     "canary": "sample_totals",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0019,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "sample_totals",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0085,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "false_induction",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0036,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "false_induction",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.009,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "contradictory_stats",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0026,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "contradictory_stats",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 1,
+     "cost_usd": 0.0088,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "injection_units",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 3,
+     "cost_usd": 0.0049,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "injection_units",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 4,
+     "cost_usd": 0.0173,
+     "found_planted_error": true,
+     "passed": true
+    },
+    {
+     "canary": "clean_control",
+     "arm": "zero_shot",
+     "status": "ok",
+     "findings": 0,
+     "cost_usd": 0.0008,
+     "serious_findings_on_clean_paper": 0,
+     "passed": true
+    },
+    {
+     "canary": "clean_control",
+     "arm": "harness",
+     "status": "ok",
+     "findings": 0,
+     "cost_usd": 0.0037,
+     "serious_findings_on_clean_paper": 0,
+     "passed": true
+    }
+   ]
+  }
+ },
+ "total_cost_usd": 0.098
+}

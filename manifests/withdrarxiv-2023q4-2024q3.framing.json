@@ -1,0 +1,15 @@
+{
+ "kind": "framing",
+ "parent_manifest": "withdrarxiv-2023q4-2024q3",
+ "parent_manifest_sha256": "e6a0193d23f2b7abfffb3cfa036ab04bb45337f09f7e3d47c798e05928b6960c",
+ "parent_prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+ "amendment_prompts_sha256": "bc4e8276b7d190d2202c439b266ee0c8394b3995c96436f61a42dc4600ee4b34",
+ "arms": [
+  "forecast",
+  "primed",
+  "primed_bare",
+  "reassured"
+ ],
+ "created_at": "2026-11-09T17:45:06+00:00",
+ "note": "Amendment 1 in PREREGISTRATION.md: framing arms on the secondary (probably seen) sample, for experiment E3. Written after the final freeze and before any framing arm ran on a real paper."
+}

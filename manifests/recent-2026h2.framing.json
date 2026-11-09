@@ -1,0 +1,15 @@
+{
+ "kind": "framing",
+ "parent_manifest": "recent-2026h2",
+ "parent_manifest_sha256": "ed9630cc78721ebbb08d21bcd8ae7274b2fdf31a222a1025d6123f4eb8161917",
+ "parent_prompts_sha256": "3d0fdfd5edaff2eca4596c25e047e693f78beb498316e006fc1465f200a24446",
+ "amendment_prompts_sha256": "bc4e8276b7d190d2202c439b266ee0c8394b3995c96436f61a42dc4600ee4b34",
+ "arms": [
+  "forecast",
+  "primed",
+  "primed_bare",
+  "reassured"
+ ],
+ "created_at": "2026-11-09T17:45:04+00:00",
+ "note": "Amendment 1 in PREREGISTRATION.md: framing arms (primed, primed_bare, reassured, forecast) on the primary sample, tests A-E. Written after the final freeze and before any framing arm ran on a real paper."
+}

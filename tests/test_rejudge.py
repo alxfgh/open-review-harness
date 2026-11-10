@@ -4,7 +4,18 @@ from dataclasses import replace
 
 from review_harness.judge import SHUFFLED_PAIR, TRUE_PAIR, JudgedPair
 from review_harness.ledger import Budget, Caller, Ledger
-from review_harness.rejudge import agreement, api_name, rejudge, render, sample_units
+from review_harness.rejudge import (
+    agreement,
+    api_name,
+    load_or_draw_units,
+    merge,
+    rejudge,
+    render,
+    render_all,
+    sample_units,
+    summarize,
+    units_path,
+)
 from review_harness.review import HARNESS, ReviewedFinding, ReviewRecord
 from review_harness.schemas import MatchKind
 
@@ -14,10 +25,10 @@ E, R, N = MatchKind.exact, MatchKind.related, MatchKind.none
 CODEX = ("codex/gpt-6.1-sol", "codex/gpt-6.1-terra")
 
 
-def pair(judge, paper, kind, matches, gold_paper=None):
+def pair(judge, paper, kind, matches, gold_paper=None, model="m"):
     return JudgedPair(
         judge=judge,
-        model="m",
+        model=model,
         arm=HARNESS,
         paper=paper,
         gold_paper=gold_paper or paper,
@@ -26,15 +37,17 @@ def pair(judge, paper, kind, matches, gold_paper=None):
     )
 
 
-def codex_judged(n=40):
+def codex_judged(n=40, model="m"):
     items = []
     for i in range(n):
         for judge in CODEX:
-            items.append(pair(judge, f"p{i}", TRUE_PAIR, [E, N] if i % 3 == 0 else [N, R]))
-            items.append(pair(judge, f"p{i}", SHUFFLED_PAIR, [N, N], gold_paper=f"p{(i + 1) % n}"))
+            matches = [E, N] if i % 3 == 0 else [N, R]
+            items.append(pair(judge, f"p{i}", TRUE_PAIR, matches, model=model))
+            shuffled = f"p{(i + 1) % n}"
+            items.append(pair(judge, f"p{i}", SHUFFLED_PAIR, [N, N], shuffled, model=model))
     # A review with no findings was never sent to a judge, so it cannot be sampled.
     for judge in CODEX:
-        items.append(pair(judge, "empty", TRUE_PAIR, []))
+        items.append(pair(judge, "empty", TRUE_PAIR, [], model=model))
     return items
 
 
@@ -50,6 +63,51 @@ def test_sample_is_a_fixed_tenth_of_units_every_judge_scored():
     assert units == sample_units(list(reversed(judged)), seed=7)
     assert all(unit[2] != "empty" for unit in units)
     assert units != sample_units(judged, seed=8)
+
+
+def test_a_models_sample_is_unchanged_when_another_models_judgments_are_added():
+    first = codex_judged(model="codex/a")
+    alone = sample_units(first, seed=7)
+    both = first + codex_judged(model="codex/b")
+    assert sample_units(both, seed=7, models=["codex/a"]) == alone
+    other = sample_units(both, seed=7, models=["codex/b"])
+    assert len(other) == 8 and all(unit[0] == "codex/b" for unit in other)
+
+
+def test_a_saved_sample_is_reused_rather_than_redrawn(tmp_path):
+    judged_path = tmp_path / "judgments.jsonl"
+    judged_path.write_text("x", encoding="utf-8")
+    path = units_path(tmp_path, ["codex/a"])
+    assert path.name == "rejudge-units-codex-a.json"
+    first = codex_judged(model="codex/a")
+    units, loaded = load_or_draw_units(path, judged_path, first, 7, models=["codex/a"])
+    assert not loaded and path.exists() and len(units) == 8
+    # Later judgments would change a fresh draw from the full frame; the saved sample stands.
+    later = codex_judged(n=60, model="codex/a")
+    again, loaded = load_or_draw_units(path, judged_path, later, 7, models=["codex/a"])
+    assert loaded and again == units
+    assert sample_units(later, 7, models=["codex/a"]) != units
+
+
+def test_merge_keeps_other_units_and_replaces_redone_ones():
+    old_a = pair("a", "p1", TRUE_PAIR, [N], model="codex/a")
+    old_b = pair("a", "p1", TRUE_PAIR, [N], model="codex/b")
+    new_b = pair("a", "p1", TRUE_PAIR, [E], model="codex/b")
+    assert merge([old_a, old_b], [new_b]) == [old_a, new_b]
+
+
+def test_summary_reports_each_reviewed_model_and_the_pool():
+    original, repeat = [], []
+    for model in ("codex/a", "codex/b"):
+        for judge in ("a", "b"):
+            original.append(pair(f"codex/{judge}", "p1", TRUE_PAIR, [E], model=model))
+            repeat.append(pair(judge, "p1", TRUE_PAIR, [E], model=model))
+    summary = summarize(original, repeat)
+    assert set(summary["by_model"]) == {"codex/a", "codex/b"}
+    assert summary["by_model"]["codex/a"]["units"] == 1
+    assert summary["pooled"]["units"] == 2 and summary["pooled"]["exact_at_5"]["both"] == 2
+    text = render_all(summary)
+    assert "reviews by codex/a" in text and "reviews by codex/b" in text and "all models" in text
 
 
 def test_agreement_counts_labels_and_both_judges_hits():

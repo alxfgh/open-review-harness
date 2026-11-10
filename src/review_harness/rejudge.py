@@ -8,8 +8,12 @@ each runtime and compared.
 """
 
 import asyncio
+import hashlib
+import json
 import random
 from collections import defaultdict
+from collections.abc import Iterable
+from pathlib import Path
 from typing import Any
 
 from review_harness.judge import TOP_K, JudgedPair, judge_one
@@ -22,6 +26,9 @@ from review_harness.stats import cohen_kappa
 
 FRACTION = 0.10
 CLI_PREFIX = "codex/"
+# API re-judgments are paid calls; they get their own ledger, apart from the subscription runs.
+LEDGER = "ledger-api.jsonl"
+OUTPUT = "rejudge-api.jsonl"
 
 Unit = tuple[str, str, str, str, str]  # model, arm, paper, gold_paper, pair
 
@@ -35,16 +42,74 @@ def unit_of(item: JudgedPair) -> Unit:
     return (item.model, item.arm, item.paper, item.gold_paper, item.pair)
 
 
-def sample_units(judged: list[JudgedPair], seed: int, fraction: float = FRACTION) -> list[Unit]:
-    """A fixed random share of the units every judge scored, the same on every run."""
+def sampling_frame(judged: list[JudgedPair], models: Iterable[str] | None = None) -> list[Unit]:
+    """The units every judge scored, optionally only those of the reviewed models named."""
+    wanted = set(models) if models else None
     judges = {item.judge for item in judged}
     scored: dict[Unit, set[str]] = defaultdict(set)
     for item in judged:
-        if item.status == "ok" and item.matches:
+        if item.status == "ok" and item.matches and (wanted is None or item.model in wanted):
             scored[unit_of(item)].add(item.judge)
-    units = sorted(unit for unit, by in scored.items() if by == judges)
+    return sorted(unit for unit, by in scored.items() if by == judges)
+
+
+def sample_units(
+    judged: list[JudgedPair],
+    seed: int,
+    fraction: float = FRACTION,
+    models: Iterable[str] | None = None,
+) -> list[Unit]:
+    """A fixed random share of the sampling frame, the same on every run.
+
+    Judgments of other reviewed models do not change the frame, so adding a model's judgments
+    later leaves the sample drawn for an earlier model as it was.
+    """
+    units = sampling_frame(judged, models)
     count = round(len(units) * fraction)
     return sorted(random.Random(f"rejudge|{seed}").sample(units, count))
+
+
+def units_path(folder: Path, models: Iterable[str] | None = None) -> Path:
+    """Where the sample for these reviewed models is saved, before any API call is made."""
+    slug = "-".join(sorted(m.replace("/", "-") for m in models)) if models else "all"
+    return folder / f"rejudge-units-{slug}.json"
+
+
+def load_or_draw_units(
+    path: Path,
+    judged_path: Path,
+    judged: list[JudgedPair],
+    seed: int,
+    fraction: float = FRACTION,
+    models: Iterable[str] | None = None,
+) -> tuple[list[Unit], bool]:
+    """The saved sample if there is one, else a new draw, saved before it is used.
+
+    Rerunning after more judgments were added must not redraw the sample, so a saved sample wins.
+    Returns the units and whether they were loaded from an earlier save.
+    """
+    if path.exists():
+        saved = json.loads(path.read_text(encoding="utf-8"))
+        return [tuple(unit) for unit in saved["sampled_units"]], True  # type: ignore[misc]
+    names = sorted(models) if models else None
+    units = sample_units(judged, seed, fraction, names)
+    record = {
+        "judgments_sha256": hashlib.sha256(judged_path.read_bytes()).hexdigest(),
+        "judgments": len(judged),
+        "models": names,
+        "sampling_frame_units": len(sampling_frame(judged, names)),
+        "fraction": fraction,
+        "seed": f"rejudge|{seed}",
+        "sampled_units": [list(unit) for unit in units],
+    }
+    path.write_text(json.dumps(record, indent=1) + "\n", encoding="utf-8")
+    return units, False
+
+
+def merge(existing: list[JudgedPair], new: list[JudgedPair]) -> list[JudgedPair]:
+    """Earlier re-judgments of other units are kept; those of the units just re-judged are replaced."""
+    redone = {unit_of(item) for item in new}
+    return [item for item in existing if unit_of(item) not in redone] + new
 
 
 async def rejudge(
@@ -140,9 +205,40 @@ def agreement(original: list[JudgedPair], repeat: list[JudgedPair]) -> dict[str,
     }
 
 
-def render(result: dict[str, Any], sampled: int, total: int) -> str:
+def summarize(judged: list[JudgedPair], repeat: list[JudgedPair]) -> dict[str, Any]:
+    """Agreement for each reviewed model's sample, and pooled over all of them."""
+
+    def section(model: str | None) -> dict[str, Any]:
+        mine = [i for i in repeat if model is None or i.model == model]
+        theirs = [i for i in judged if model is None or i.model == model]
+        return {
+            "sampled_units": len({unit_of(item) for item in mine}),
+            "judged_units": len({unit_of(item) for item in theirs if item.matches}),
+            **agreement(theirs, mine),
+        }
+
+    models = sorted({item.model for item in repeat})
+    return {"by_model": {model: section(model) for model in models}, "pooled": section(None)}
+
+
+def render_all(summary: dict[str, Any]) -> str:
+    by_model = summary["by_model"]
+    parts = [
+        render(row, row["sampled_units"], row["judged_units"], title=f"reviews by {model}")
+        for model, row in by_model.items()
+    ]
+    if len(by_model) > 1:
+        pooled = summary["pooled"]
+        parts.append(
+            render(pooled, pooled["sampled_units"], pooled["judged_units"], title="all models")
+        )
+    return "\n".join(parts)
+
+
+def render(result: dict[str, Any], sampled: int, total: int, title: str | None = None) -> str:
+    heading = "## Judges: Codex against the API (Deviation 1)"
     lines = [
-        "## Judges: Codex against the API (Deviation 1)",
+        f"{heading}, {title}" if title else heading,
         "",
         f"A random {sampled} of the {total} judged units (one review scored against one stated",
         "reason) were judged again through the provider API by the same models, prompts and rule.",

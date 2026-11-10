@@ -168,22 +168,31 @@ async def _rejudge(args: argparse.Namespace) -> int:
     """Deviation 1: judge a fixed random share of the Codex-judged units again through the API."""
     manifest = manifests.load_manifest(args.manifest)
     folder = _run_dir(manifest)
-    judged = runner.read_judged(folder / "judgments.jsonl")
-    units = rejudging.sample_units(judged, manifest["seed"], args.fraction)
+    judged_path = folder / "judgments.jsonl"
+    judged = runner.read_judged(judged_path)
+    models = _names(args.models) if args.models else None
+    path = rejudging.units_path(folder, models)
+    if args.estimate and not path.exists():
+        units = rejudging.sample_units(judged, manifest["seed"], args.fraction, models)
+    else:
+        units, loaded = rejudging.load_or_draw_units(
+            path, judged_path, judged, manifest["seed"], args.fraction, models
+        )
+        print(f"{'Using the sample saved' if loaded else 'Sample saved'} in {path}.", flush=True)
     judges = [get_model(n) for n in _names(args.judges)]
-    total = len({rejudging.unit_of(item) for item in judged if item.matches})
+    frame = len(rejudging.sampling_frame(judged, models))
     input_tokens, output_tokens = runner.JUDGE_TOKENS
     low = sum(len(units) * j.cost_usd(input_tokens, output_tokens * 2) for j in judges)
     high = sum(len(units) * j.cost_usd(input_tokens, output_tokens * 4) for j in judges)
     print(
-        f"{len(units)} of {total} units, {len(units) * len(judges)} calls, "
+        f"{len(units)} of {frame} units, {len(units) * len(judges)} calls, "
         f"estimated ${low:.2f}-${high:.2f}, limit ${args.max_usd:.2f}.",
         flush=True,
     )
     if args.estimate:
         return 0
     golds = {p["key"]: p["gold"] for p in manifest["papers"] if p["role"] == "withdrawn"}
-    ledger = Ledger(folder / "ledger.jsonl")
+    ledger = Ledger(folder / rejudging.LEDGER)
     budget = Budget(args.max_usd)
     repeat = await rejudging.rejudge(
         Caller(ProviderLLM(), ledger, budget),
@@ -193,7 +202,9 @@ async def _rejudge(args: argparse.Namespace) -> int:
         golds,
         args.concurrency,
     )
-    runner.write_jsonl(folder / "rejudge-api.jsonl", repeat)
+    out = folder / rejudging.OUTPUT
+    earlier = runner.read_judged(out) if out.exists() else []
+    runner.write_jsonl(out, rejudging.merge(earlier, repeat))
     failed = sum(1 for item in repeat if item.status != "ok")
     print(f"{len(repeat)} re-judgments saved, {failed} not ok. New spend ${budget.spent:.2f}.")
     return 1 if failed else 0
@@ -226,17 +237,11 @@ def cmd_report(args: argparse.Namespace) -> int:
                 title=f"Framing arms without the {len(partial)} claim-in-replacement withdrawals",
             )
         (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
-    repeat_path = folder / "rejudge-api.jsonl"
+    repeat_path = folder / rejudging.OUTPUT
     if repeat_path.exists():
-        judged, repeat = inputs[1], runner.read_judged(repeat_path)
-        sampled = len({rejudging.unit_of(item) for item in repeat})
-        total = len({rejudging.unit_of(item) for item in judged if item.matches})
-        summary["judges_codex_vs_api"] = {
-            "sampled_units": sampled,
-            "judged_units": total,
-            **rejudging.agreement(judged, repeat),
-        }
-        markdown += "\n" + rejudging.render(summary["judges_codex_vs_api"], sampled, total)
+        compared = rejudging.summarize(inputs[1], runner.read_judged(repeat_path))
+        summary["judges_codex_vs_api"] = compared
+        markdown += "\n" + rejudging.render_all(compared)
         (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
     (out / "summary.md").write_text(markdown, encoding="utf-8")
     print(markdown)
@@ -349,6 +354,9 @@ def main() -> None:
     )
     rejudge.add_argument("--manifest", type=Path, required=True)
     rejudge.add_argument("--judges", default="gpt-6.1-sol,gpt-6.1-terra")
+    rejudge.add_argument(
+        "--models", help="sample only reviews by these models (comma-separated); default all"
+    )
     rejudge.add_argument("--fraction", type=float, default=rejudging.FRACTION)
     rejudge.add_argument("--max-usd", type=float, required=True)
     rejudge.add_argument("--concurrency", type=int, default=4)

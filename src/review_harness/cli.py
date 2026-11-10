@@ -11,6 +11,7 @@ from pathlib import Path
 from review_harness import framing, packet_cli, report, runner
 from review_harness import judge as judging
 from review_harness import manifest as manifests
+from review_harness import rejudge as rejudging
 from review_harness.ledger import Budget, Caller, Ledger
 from review_harness.llm import ProviderLLM, get_model, load_registry
 from review_harness.papers import ArxivClient
@@ -163,6 +164,41 @@ async def _judge(args: argparse.Namespace) -> int:
     return 0
 
 
+async def _rejudge(args: argparse.Namespace) -> int:
+    """Deviation 1: judge a fixed random share of the Codex-judged units again through the API."""
+    manifest = manifests.load_manifest(args.manifest)
+    folder = _run_dir(manifest)
+    judged = runner.read_judged(folder / "judgments.jsonl")
+    units = rejudging.sample_units(judged, manifest["seed"], args.fraction)
+    judges = [get_model(n) for n in _names(args.judges)]
+    total = len({rejudging.unit_of(item) for item in judged if item.matches})
+    input_tokens, output_tokens = runner.JUDGE_TOKENS
+    low = sum(len(units) * j.cost_usd(input_tokens, output_tokens * 2) for j in judges)
+    high = sum(len(units) * j.cost_usd(input_tokens, output_tokens * 4) for j in judges)
+    print(
+        f"{len(units)} of {total} units, {len(units) * len(judges)} calls, "
+        f"estimated ${low:.2f}-${high:.2f}, limit ${args.max_usd:.2f}.",
+        flush=True,
+    )
+    if args.estimate:
+        return 0
+    golds = {p["key"]: p["gold"] for p in manifest["papers"] if p["role"] == "withdrawn"}
+    ledger = Ledger(folder / "ledger.jsonl")
+    budget = Budget(args.max_usd)
+    repeat = await rejudging.rejudge(
+        Caller(ProviderLLM(), ledger, budget),
+        judges,
+        units,
+        runner.read_reviews(folder / "reviews.jsonl"),
+        golds,
+        args.concurrency,
+    )
+    runner.write_jsonl(folder / "rejudge-api.jsonl", repeat)
+    failed = sum(1 for item in repeat if item.status != "ok")
+    print(f"{len(repeat)} re-judgments saved, {failed} not ok. New spend ${budget.spent:.2f}.")
+    return 1 if failed else 0
+
+
 def cmd_report(args: argparse.Namespace) -> int:
     manifest = manifests.load_manifest(args.manifest)
     folder = _run_dir(manifest)
@@ -189,6 +225,18 @@ def cmd_report(args: argparse.Namespace) -> int:
                 without,
                 title=f"Framing arms without the {len(partial)} claim-in-replacement withdrawals",
             )
+        (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
+    repeat_path = folder / "rejudge-api.jsonl"
+    if repeat_path.exists():
+        judged, repeat = inputs[1], runner.read_judged(repeat_path)
+        sampled = len({rejudging.unit_of(item) for item in repeat})
+        total = len({rejudging.unit_of(item) for item in judged if item.matches})
+        summary["judges_codex_vs_api"] = {
+            "sampled_units": sampled,
+            "judged_units": total,
+            **rejudging.agreement(judged, repeat),
+        }
+        markdown += "\n" + rejudging.render(summary["judges_codex_vs_api"], sampled, total)
         (out / "summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
     (out / "summary.md").write_text(markdown, encoding="utf-8")
     print(markdown)
@@ -295,6 +343,17 @@ def main() -> None:
     judge.add_argument("--max-usd", type=float, required=True)
     judge.add_argument("--concurrency", type=int, default=4)
     judge.set_defaults(run_async=_judge)
+
+    rejudge = commands.add_parser(
+        "rejudge", help="judge a random share of the Codex-judged pairs again through the API"
+    )
+    rejudge.add_argument("--manifest", type=Path, required=True)
+    rejudge.add_argument("--judges", default="gpt-6.1-sol,gpt-6.1-terra")
+    rejudge.add_argument("--fraction", type=float, default=rejudging.FRACTION)
+    rejudge.add_argument("--max-usd", type=float, required=True)
+    rejudge.add_argument("--concurrency", type=int, default=4)
+    rejudge.add_argument("--estimate", action="store_true", help="print the plan and cost only")
+    rejudge.set_defaults(run_async=_rejudge)
 
     report_parser = commands.add_parser("report", help="write the aggregate results")
     report_parser.add_argument("--manifest", type=Path, required=True)

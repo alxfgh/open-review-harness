@@ -45,10 +45,13 @@ def unit_of(item: JudgedPair) -> Unit:
 def sampling_frame(judged: list[JudgedPair], models: Iterable[str] | None = None) -> list[Unit]:
     """The units every judge scored, optionally only those of the reviewed models named."""
     wanted = set(models) if models else None
-    judges = {item.judge for item in judged}
+    mine = [item for item in judged if wanted is None or item.model in wanted]
+    # The judges of these models' reviews only: another model judged by other judges must not
+    # empty this frame.
+    judges = {item.judge for item in mine}
     scored: dict[Unit, set[str]] = defaultdict(set)
-    for item in judged:
-        if item.status == "ok" and item.matches and (wanted is None or item.model in wanted):
+    for item in mine:
+        if item.status == "ok" and item.matches:
             scored[unit_of(item)].add(item.judge)
     return sorted(unit for unit, by in scored.items() if by == judges)
 
@@ -86,12 +89,19 @@ def load_or_draw_units(
     """The saved sample if there is one, else a new draw, saved before it is used.
 
     Rerunning after more judgments were added must not redraw the sample, so a saved sample wins.
+    A saved sample drawn with another seed, fraction or model filter is refused, not reused.
     Returns the units and whether they were loaded from an earlier save.
     """
+    names = sorted(models) if models else None
     if path.exists():
         saved = json.loads(path.read_text(encoding="utf-8"))
+        wanted = {"seed": f"rejudge|{seed}", "fraction": fraction, "models": names}
+        found = {key: saved.get(key) for key in wanted}
+        if found != wanted:
+            raise ValueError(
+                f"{path} was drawn with {found}, not {wanted}. Move it aside to draw a new sample."
+            )
         return [tuple(unit) for unit in saved["sampled_units"]], True  # type: ignore[misc]
-    names = sorted(models) if models else None
     units = sample_units(judged, seed, fraction, names)
     record = {
         "judgments_sha256": hashlib.sha256(judged_path.read_bytes()).hexdigest(),

@@ -2,6 +2,8 @@
 
 from dataclasses import replace
 
+import pytest
+
 from review_harness.judge import SHUFFLED_PAIR, TRUE_PAIR, JudgedPair
 from review_harness.ledger import Budget, Caller, Ledger
 from review_harness.rejudge import (
@@ -87,6 +89,31 @@ def test_a_saved_sample_is_reused_rather_than_redrawn(tmp_path):
     again, loaded = load_or_draw_units(path, judged_path, later, 7, models=["codex/a"])
     assert loaded and again == units
     assert sample_units(later, 7, models=["codex/a"]) != units
+
+
+def test_a_saved_sample_drawn_differently_is_refused(tmp_path):
+    judged_path = tmp_path / "judgments.jsonl"
+    judged_path.write_text("x", encoding="utf-8")
+    path = units_path(tmp_path, ["codex/a"])
+    judged = codex_judged(model="codex/a")
+    load_or_draw_units(path, judged_path, judged, 7, models=["codex/a"])
+    for changed in ({"seed": 8}, {"fraction": 0.2}):
+        args = {"seed": 7, "fraction": 0.10, **changed}
+        with pytest.raises(ValueError, match="Move it aside"):
+            load_or_draw_units(
+                path, judged_path, judged, args["seed"], args["fraction"], ["codex/a"]
+            )
+
+
+def test_a_models_frame_uses_only_the_judges_of_its_own_reviews():
+    first = codex_judged(model="codex/a")
+    # Model b was judged by a different pair; that must not empty model a's frame.
+    other = [
+        pair(judge, f"q{i}", TRUE_PAIR, [E], model="codex/b")
+        for i in range(10)
+        for judge in ("codex/x", "codex/y")
+    ]
+    assert sample_units(first + other, 7, models=["codex/a"]) == sample_units(first, 7)
 
 
 def test_merge_keeps_other_units_and_replaces_redone_ones():
